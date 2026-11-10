@@ -1,0 +1,13 @@
+{
+  "name": "Sapio · Oficina digital del campus",
+  "short_name": "Sapio",
+  "description": "Previsualización navegable de Sapio. Datos ilustrativos.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#101D2B",
+  "theme_color": "#101D2B",
+  "icons": [
+    { "src": "./icon-192.svg", "sizes": "192x192", "type": "image/svg+xml", "purpose": "any maskable" },
+    { "src": "./icon-512.svg", "sizes": "512x512", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

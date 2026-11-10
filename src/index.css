@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  .dark {
+    color-scheme: dark;
+  }
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+  body {
+    @apply bg-marfil text-noche antialiased;
+    font-family: 'Lato', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .dark body {
+    @apply bg-noche text-marfil;
+  }
+  * {
+    border-color: theme('colors.borde');
+  }
+  .dark * {
+    border-color: #27425a;
+  }
+  h1,
+  h2,
+  h3 {
+    font-weight: 900;
+    letter-spacing: -0.015em;
+  }
+  ::selection {
+    background: #527d79;
+    color: #f6f2e9;
+  }
+  /* tabular numbers everywhere numbers matter */
+  .num {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum';
+  }
+  :focus-visible {
+    outline: 2px solid #527d79;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .kicker {
+    @apply text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] text-mineral;
+  }
+  .dark .kicker {
+    @apply text-mineral-300;
+  }
+  .filete {
+    @apply block h-[3px] w-[88px] bg-champan;
+  }
+  .card-sapio {
+    @apply rounded-2xl border border-borde bg-white shadow-sapio;
+  }
+  .dark .card-sapio {
+    @apply border-[#27425a] bg-noche-800;
+  }
+  .serif-it {
+    font-family: 'Tinos', 'Liberation Serif', Georgia, serif;
+    font-style: italic;
+  }
+  .scroll-x-contenida {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+  .sin-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .sin-scrollbar {
+    scrollbar-width: none;
+  }
+  .vidrio {
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(10px);
+  }
+  .dark .vidrio {
+    background: rgba(23, 40, 57, 0.86);
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+    color: #101d2b !important;
+  }
+  .card-sapio {
+    break-inside: avoid;
+    box-shadow: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

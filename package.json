@@ -1,0 +1,49 @@
+{
+  "name": "sapio-mvp",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "qa:responsive": "node scripts/qa-responsive.mjs",
+    "qa:i18n": "node scripts/qa-i18n.mjs",
+    "qa:rutas": "node scripts/qa-rutas.mjs"
+  },
+  "dependencies": {
+    "@tiptap/extension-link": "2.11.5",
+    "@tiptap/extension-placeholder": "2.11.5",
+    "@tiptap/pm": "2.11.5",
+    "@tiptap/react": "2.11.5",
+    "@tiptap/starter-kit": "2.11.5",
+    "@types/node": "22.10.2",
+    "@types/papaparse": "5.3.15",
+    "@types/react": "18.3.18",
+    "@types/react-dom": "18.3.5",
+    "@vitejs/plugin-react": "4.3.4",
+    "autoprefixer": "10.4.20",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "date-fns": "3.6.0",
+    "framer-motion": "11.15.0",
+    "gsap": "3.12.5",
+    "lenis": "1.1.18",
+    "lucide-react": "0.469.0",
+    "papaparse": "5.4.1",
+    "postcss": "8.4.49",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-router-dom": "6.28.1",
+    "recharts": "2.15.0",
+    "tailwind-merge": "2.6.0",
+    "tailwindcss": "3.4.17",
+    "tailwindcss-animate": "1.0.7",
+    "typescript": "5.6.3",
+    "vite": "5.4.11",
+    "zustand": "4.5.5"
+  },
+  "devDependencies": {
+    "playwright": "1.49.1"
+  }
+}

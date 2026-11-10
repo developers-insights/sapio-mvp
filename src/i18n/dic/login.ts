@@ -1,0 +1,26 @@
+import type { Dic } from '../tipos'
+
+export const login: Dic = {
+  'login.headline1': { es: 'Tu siguiente etapa', en: 'Your next chapter' },
+  'login.headline2': { es: 'comienza aquí.', en: 'starts here.' },
+  'login.claim': { es: 'El conocimiento crea posibilidades.', en: 'Knowledge creates possibilities.' },
+  'login.b1': { es: 'Un campus propio para cada universidad', en: 'A dedicated campus for every university' },
+  'login.b2': { es: 'Tu calendario, tareas, documentos y proyectos en un solo lugar', en: 'Your calendar, tasks, documents and projects in one place' },
+  'login.b3': { es: 'Una mesa redonda donde todos ven lo mismo, en tiempo real', en: 'A round table where everyone sees the same thing, in real time' },
+  'login.b4': { es: 'Un asistente de IA que resume y te ayuda a redactar', en: 'An AI assistant that summarises and helps you write' },
+  'login.titulo': { es: 'Entrar a la demo', en: 'Enter the demo' },
+  'login.subtitulo': { es: 'Elegí un rol y entrá: no hace falta una contraseña real.', en: 'Pick a role and come in: no real password needed.' },
+  'login.email': { es: 'Correo', en: 'Email' },
+  'login.emailPh': { es: 'nombre@universidad.sapio.example', en: 'name@university.sapio.example' },
+  'login.password': { es: 'Contraseña', en: 'Password' },
+  'login.recordarme': { es: 'Recordarme', en: 'Remember me' },
+  'login.olvide': { es: '¿Olvidaste tu contraseña?', en: 'Forgot your password?' },
+  'login.entrar': { es: 'Entrar', en: 'Sign in' },
+  'login.autorrelleno': { es: 'Auto-rellenar por rol', en: 'Autofill by role' },
+  'login.autorrellenoAyuda': { es: 'Completa el formulario sin enviarlo.', en: 'Fills the form without submitting it.' },
+  'login.trailer': { es: 'Ver demo automática de la plataforma', en: 'Watch the automatic platform demo' },
+  'login.recuperar': { es: 'Recuperación de contraseña por correo', en: 'Password recovery by email' },
+  'login.recuperarDetalle': { es: 'En la demo no se envía ningún correo.', en: 'No email is sent in the demo.' },
+  'login.faltaEmail': { es: 'Completá el correo para entrar', en: 'Enter an email to sign in' },
+  'login.bienvenida': { es: 'Entraste como {rol}', en: 'Signed in as {rol}' },
+}

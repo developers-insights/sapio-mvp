@@ -1,0 +1,53 @@
+import type { Dic } from '../tipos'
+
+/** Mapa de traducción de estados y roles. El valor interno se mantiene estable. */
+export const estados: Dic = {
+  'estado.pendiente': { es: 'Pendiente', en: 'Pending' },
+  'estado.aprobado': { es: 'Aprobado', en: 'Approved' },
+  'estado.rechazado': { es: 'Rechazado', en: 'Rejected' },
+  'estado.enviada': { es: 'Enviada', en: 'Sent' },
+  'estado.aceptada': { es: 'Aceptada', en: 'Accepted' },
+  'estado.vencida': { es: 'Vencida', en: 'Expired' },
+  'estado.cancelada': { es: 'Cancelada', en: 'Cancelled' },
+  'estado.activa': { es: 'Activa', en: 'Active' },
+  'estado.activo': { es: 'Activo', en: 'Active' },
+  'estado.prueba': { es: 'En prueba', en: 'Trial' },
+  'estado.vencido': { es: 'Vencido', en: 'Expired' },
+  'estado.suspendido': { es: 'Suspendido', en: 'Suspended' },
+  'estado.suspendida': { es: 'Suspendida', en: 'Suspended' },
+  'estado.pagada': { es: 'Pagada', en: 'Paid' },
+  'estado.por-hacer': { es: 'Por hacer', en: 'To do' },
+  'estado.en-curso': { es: 'En curso', en: 'In progress' },
+  'estado.en-revision': { es: 'En revisión', en: 'In review' },
+  'estado.hecha': { es: 'Hecha', en: 'Done' },
+  'estado.atrasada': { es: 'Atrasada', en: 'Overdue' },
+  'estado.conectado': { es: 'Conectado', en: 'Online' },
+  'estado.ausente': { es: 'Ausente', en: 'Away' },
+  'estado.desconectado': { es: 'Desconectado', en: 'Offline' },
+  'estado.ok': { es: 'Permitido', en: 'Allowed' },
+  'estado.bloqueado': { es: 'Bloqueado', en: 'Blocked' },
+  'estado.errorRes': { es: 'Error', en: 'Error' },
+  'estado.resuelto': { es: 'Resuelto', en: 'Resolved' },
+  'estado.sinResolver': { es: 'Sin resolver', en: 'Unresolved' },
+
+  'prioridad.alta': { es: 'Alta', en: 'High' },
+  'prioridad.media': { es: 'Media', en: 'Medium' },
+  'prioridad.baja': { es: 'Baja', en: 'Low' },
+
+  'rol.super': { es: 'Súper usuario', en: 'Super user' },
+  'rol.universidad': { es: 'Administradora de universidad', en: 'University administrator' },
+  'rol.universidad.corto': { es: 'Universidad', en: 'University' },
+  'rol.profesor': { es: 'Profesor', en: 'Faculty' },
+  'rol.estudiante': { es: 'Estudiante', en: 'Student' },
+  'rol.colaborador': { es: 'Colaborador', en: 'Collaborator' },
+
+  'permiso.lectura': { es: 'Lectura', en: 'Read' },
+  'permiso.edicion': { es: 'Edición', en: 'Edit' },
+  'permiso.ver': { es: 'Ver', en: 'View' },
+  'permiso.crear': { es: 'Crear', en: 'Create' },
+  'permiso.editar': { es: 'Editar', en: 'Edit' },
+  'permiso.eliminar': { es: 'Eliminar', en: 'Delete' },
+
+  'plan.mensual': { es: 'Mensual', en: 'Monthly' },
+  'plan.anual': { es: 'Anual', en: 'Annual' },
+}
