@@ -472,7 +472,7 @@ export function Tabla({ children, className }: { children: React.ReactNode; clas
   )
 }
 
-export function Th({ children, className }: { children: React.ReactNode; className?: string }) {
+export function Th({ children, className }: { children?: React.ReactNode; className?: string }) {
   return (
     <th
       className={cn(
@@ -485,7 +485,7 @@ export function Th({ children, className }: { children: React.ReactNode; classNa
   )
 }
 
-export function Td({ children, className }: { children: React.ReactNode; className?: string }) {
+export function Td({ children, className }: { children?: React.ReactNode; className?: string }) {
   return (
     <td className={cn('border-b border-borde/70 px-4 py-3 align-middle dark:border-[#27425a]/70', className)}>
       {children}

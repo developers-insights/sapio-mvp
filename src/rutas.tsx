@@ -23,6 +23,11 @@ import { Suscripcion } from '@/features/universidad/Suscripcion'
 import { PlataformaPanel } from '@/features/plataforma/Panel'
 import { Universidades, UniversidadDetalle } from '@/features/plataforma/Universidades'
 import { Planes } from '@/features/plataforma/Planes'
+import { PlataformaRoles } from '@/features/plataforma/Roles'
+import { Auditoria } from '@/features/plataforma/Auditoria'
+import { Seguridad } from '@/features/plataforma/Seguridad'
+import { Marca } from '@/features/plataforma/Marca'
+import { Proximamente } from '@/features/plataforma/Proximamente'
 
 function Esq({ k, t }: { k: string; t: string }) {
   return <Esqueleto kicker={k} titulo={t} />
@@ -40,10 +45,10 @@ export function Rutas() {
         <Route path="/plataforma/universidades" element={<Universidades />} />
         <Route path="/plataforma/universidades/:id" element={<UniversidadDetalle />} />
         <Route path="/plataforma/planes" element={<Planes />} />
-        <Route path="/plataforma/roles" element={<Esq k="PLATAFORMA" t="Roles y permisos" />} />
-        <Route path="/plataforma/auditoria" element={<Esq k="SEGURIDAD" t="Auditoría" />} />
-        <Route path="/plataforma/seguridad" element={<Esq k="SEGURIDAD" t="Seguridad" />} />
-        <Route path="/plataforma/marca" element={<Esq k="MARCA" t="Sistema de diseño" />} />
+        <Route path="/plataforma/roles" element={<PlataformaRoles />} />
+        <Route path="/plataforma/auditoria" element={<Auditoria />} />
+        <Route path="/plataforma/seguridad" element={<Seguridad />} />
+        <Route path="/plataforma/marca" element={<Marca />} />
 
         <Route path="/universidad/panel" element={<UniversidadPanel />} />
         <Route path="/universidad/miembros" element={<Miembros />} />
@@ -66,7 +71,7 @@ export function Rutas() {
         <Route path="/chat/:canal" element={<Chat />} />
 
         <Route path="/campus/:slug" element={<CampusPublico />} />
-        <Route path="/proximamente" element={<Esq k="PRÓXIMAMENTE" t="Fases 2 y 3" />} />
+        <Route path="/proximamente" element={<Proximamente />} />
       </Route>
       <Route path="*" element={<Navigate to="/propuesta" replace />} />
     </Routes>
