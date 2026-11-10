@@ -74,7 +74,8 @@ export function Universidades() {
         <Pildora tono="neutro">{TOTALES_PLATAFORMA.universidades} {t('plat.panel.universidades')}</Pildora>
         <Pildora tono="mineral">{TOTALES_PLATAFORMA.activas} {t('estado.activa')}</Pildora>
         <Pildora tono="pizarra">{TOTALES_PLATAFORMA.prueba} {t('estado.prueba')}</Pildora>
-        <Pildora tono="terroso">{TOTALES_PLATAFORMA.vencidas + TOTALES_PLATAFORMA.suspendidas} {t('plat.panel.suscVencidas')}</Pildora>
+        <Pildora tono="terroso">{TOTALES_PLATAFORMA.vencidas} {t('estado.vencida')}</Pildora>
+        <Pildora tono="terroso">{TOTALES_PLATAFORMA.suspendidas} {t('estado.suspendida')}</Pildora>
       </div>
 
       {esMobile ? (
@@ -114,8 +115,8 @@ export function Universidades() {
             <tr>
               <Th>{t('plat.uni.nombre')}</Th>
               <Th className="hidden md:table-cell">{t('plat.uni.subdominio')}</Th>
-              <Th>{t('plan.mensual')}</Th>
-              <Th>{t('estado.activa')}</Th>
+              <Th>{t('plat.uni.plan')}</Th>
+              <Th>{t('plat.uni.estado')}</Th>
               <Th className="hidden lg:table-cell">{t('plat.usuariosActivos')}</Th>
               <Th>{t('uni.miembros.acciones')}</Th>
             </tr>

@@ -168,9 +168,9 @@ export function Suscripcion() {
             <tr>
               <Th>{t('susc.numero')}</Th>
               <Th>{t('susc.periodo')}</Th>
-              <Th className="hidden md:table-cell">{t('wp.doc.actualizado')}</Th>
+              <Th className="hidden md:table-cell">{t('susc.fecha')}</Th>
               <Th>{t('susc.monto')}</Th>
-              <Th>{t('estado.activo')}</Th>
+              <Th>{t('susc.estado')}</Th>
               <Th>{t('susc.comprobante')}</Th>
             </tr>
           </thead>

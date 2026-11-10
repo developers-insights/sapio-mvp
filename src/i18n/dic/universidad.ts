@@ -75,6 +75,7 @@ export const universidad: Dic = {
   'uni.inv.subirOtro': { es: 'Subir otro CSV', en: 'Upload another CSV' },
   'uni.inv.fila': { es: 'Fila', en: 'Row' },
   'uni.inv.nombre': { es: 'Nombre', en: 'Name' },
+  'uni.inv.estado': { es: 'Estado', en: 'Status' },
   'uni.inv.listado': { es: 'Invitaciones enviadas', en: 'Invitations sent' },
   'uni.inv.copiarEnlace': { es: 'Copiar el enlace', en: 'Copy the link' },
   'uni.inv.verExperiencia': { es: 'Ver la experiencia del invitado ↗', en: 'See the guest experience ↗' },

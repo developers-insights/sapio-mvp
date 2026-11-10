@@ -540,7 +540,7 @@ function TabEstudiantes() {
               <Th className="hidden md:table-cell">{t('uni.miembros.correo')}</Th>
               <Th>{t('uni.inv.rolPreasignado')}</Th>
               <Th className="hidden lg:table-cell">{t('uni.inv.grupo')}</Th>
-              <Th>{t('estado.enviada')}</Th>
+              <Th>{t('uni.inv.estado')}</Th>
               <Th>{t('uni.miembros.acciones')}</Th>
             </tr>
           </thead>
