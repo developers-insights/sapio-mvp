@@ -357,7 +357,7 @@ function TabProfesores() {
           </>
         }
       >
-        <Campo label={t('uni.inv.invitarLoteDet')}>
+        <Campo label={t('uni.inv.correos')} ayuda={t('uni.inv.invitarLoteDet')}>
           <Textarea value={lote} onChange={(e) => setLote(e.target.value)} className="num min-h-[140px] text-[12.5px]" />
         </Campo>
       </Modal>

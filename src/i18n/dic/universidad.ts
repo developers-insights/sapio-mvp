@@ -43,6 +43,7 @@ export const universidad: Dic = {
   'uni.inv.invitarProfesor': { es: 'Invitar profesor', en: 'Invite faculty member' },
   'uni.inv.invitarLote': { es: 'Invitar por lote', en: 'Invite in bulk' },
   'uni.inv.invitarLoteDet': { es: 'Pegá varios correos separados por coma o salto de línea.', en: 'Paste several emails separated by commas or line breaks.' },
+  'uni.inv.correos': { es: 'Correos', en: 'Emails' },
   'uni.inv.enlaceUnico': { es: 'Enlace de un solo uso', en: 'Single-use link' },
   'uni.inv.venceEn': { es: 'Vence en {n} días', en: 'Expires in {n} days' },
   'uni.inv.vencioHace': { es: 'Venció hace {n} días', en: 'Expired {n} days ago' },

@@ -62,6 +62,8 @@ export const plataforma: Dic = {
   'plat.planes.porAnio': { es: '/año', en: '/year' },
   'plat.planes.usuarios': { es: '{n} usuarios incluidos', en: '{n} users included' },
   'plat.planes.limiteIA': { es: '{n} consultas de IA por mes', en: '{n} AI queries per month' },
+  'plat.planes.usuariosLabel': { es: 'Usuarios incluidos', en: 'Included users' },
+  'plat.planes.limiteIALabel': { es: 'Consultas de IA por mes', en: 'AI queries per month' },
   'plat.planes.destacado': { es: 'Más elegido', en: 'Most chosen' },
   'plat.planes.editar': { es: 'Editar el plan', en: 'Edit the plan' },
   'plat.planes.guardado': { es: 'Plan actualizado en la demo', en: 'Plan updated in the demo' },

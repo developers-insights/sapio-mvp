@@ -131,10 +131,10 @@ export function Planes() {
               </Campo>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
-              <Campo label={t('plat.planes.usuarios', { n: '' }).trim()}>
+              <Campo label={t('plat.planes.usuariosLabel')}>
                 <Input type="number" defaultValue={editando.usuariosIncluidos} className="num" />
               </Campo>
-              <Campo label={t('plat.planes.limiteIA', { n: '' }).trim()}>
+              <Campo label={t('plat.planes.limiteIALabel')}>
                 <Input type="number" defaultValue={editando.limiteIA} className="num" />
               </Campo>
             </div>
