@@ -210,7 +210,14 @@ function FilaTarea({
           <div className="mt-2 flex flex-wrap items-center gap-2">
             <span className={cn('num inline-flex items-center gap-1 text-[12px] font-bold', atrasada ? 'text-terroso' : 'text-tinta-sec dark:text-marfil/55')}>
               {atrasada ? <TriangleAlert size={12} /> : null}
-              {atrasada ? t('wp.tareas.vencio', { n: Math.abs(d) }) : d === 0 ? t('wp.tareas.venceHoy') : t('wp.tareas.venceEn', { n: d })}
+              {atrasada
+                ? t('wp.tareas.vencio', { n: Math.abs(d) })
+                : d < 0
+                  ? // Ya pasó y está hecha: mostramos la fecha, no "en -6 días".
+                    `${t('wp.tareas.vence')} ${fechaCorta(tarea.vence, lang)}`
+                  : d === 0
+                    ? t('wp.tareas.venceHoy')
+                    : t('wp.tareas.venceEn', { n: d })}
             </span>
             <Pildora tono="neutro">{t(`prioridad.${tarea.prioridad}`)}</Pildora>
             {proyecto ? (

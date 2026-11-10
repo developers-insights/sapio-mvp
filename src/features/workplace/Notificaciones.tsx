@@ -51,7 +51,7 @@ export function Notificaciones() {
       <EncabezadoSeccion
         kicker={kickerRol(rol, lang)}
         titulo={t('wp.notif.titulo')}
-        bajada={sinLeer ? t('wp.mensajesSinLeer') + ': ' + sinLeer : undefined}
+        bajada={sinLeer ? t('wp.notif.sinLeerN', { n: sinLeer }) : undefined}
         acciones={
           <Boton
             variante="secundario"

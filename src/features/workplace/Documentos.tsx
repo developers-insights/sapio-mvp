@@ -107,7 +107,9 @@ export function Documentos() {
                     </span>
                     <span className="mt-2 flex flex-wrap items-center gap-2">
                       <Avatar personaId={d.autorId} size={20} />
-                      <Pildora tono="neutro">{d.versiones.length} {t('wp.doc.versiones')}</Pildora>
+                      <Pildora tono="neutro">
+                        {d.versiones.length} {t(d.versiones.length === 1 ? 'wp.doc.version' : 'wp.doc.versiones')}
+                      </Pildora>
                       {d.mesaId ? <Pildora tono="mineral">{t('nav.mesasCorto')}</Pildora> : null}
                       {d.restringido ? <Pildora tono="terroso">{t('wp.doc.restringido')}</Pildora> : null}
                     </span>

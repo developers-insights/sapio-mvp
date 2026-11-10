@@ -30,9 +30,12 @@ export function AsistenteFlotante() {
   const scrollRef = useRef<HTMLDivElement>(null)
   const entradaRef = useRef<HTMLInputElement>(null)
 
-  // Offset real: bottom-nav + barra de formato + botón de comentarios de la mesa.
+  // Offset real: además de la bottom-nav, hay que saltear las barras fijas de
+  // cada vista (la barra de formato y el botón de comentarios de la mesa, y el
+  // composer del chat) para no taparlas.
   const enMesa = pathname.startsWith('/mesa/')
-  const extra = esMobile && enMesa ? 120 : 12
+  const enConversacion = /^\/chat\/.+/.test(pathname)
+  const extra = esMobile && enMesa ? 120 : esMobile && enConversacion ? 74 : 12
   const abajo = offsetInferior + extra
 
   useEffect(() => {
