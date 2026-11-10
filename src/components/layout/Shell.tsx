@@ -9,7 +9,6 @@ import { WelcomeModal } from '@/components/WelcomeModal'
 import { Buscador } from '@/features/buscador/Buscador'
 import { AsistenteFlotante } from '@/features/asistente/AsistenteFlotante'
 import { Tour } from '@/features/tour/Tour'
-import { Trailer } from '@/features/trailer/Trailer'
 import { useUI } from '@/store/ui'
 import { puedeVer } from '@/lib/navegacion'
 import { GuardaRol } from './GuardaRol'
@@ -19,7 +18,6 @@ export function Shell() {
   const rol = useUI((s) => s.rol)
   const authed = useUI((s) => s.authed)
   const setBuscador = useUI((s) => s.setBuscador)
-  const trailer = useUI((s) => s.trailerAbierto)
   const { pathname } = useLocation()
   const navigate = useNavigate()
 
@@ -48,7 +46,6 @@ export function Shell() {
         <Outlet />
         <Toaster />
         <Tour />
-        {trailer ? <Trailer /> : null}
       </>
     )
   }
@@ -75,7 +72,6 @@ export function Shell() {
       <Buscador />
       <WelcomeModal />
       <Tour />
-      {trailer ? <Trailer /> : null}
       <Toaster />
     </div>
   )

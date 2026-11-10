@@ -35,6 +35,9 @@ export default {
         'fade-up': { from: { opacity: '0', translate: '0 12px' }, to: { opacity: '1', translate: '0 0' } },
         'scale-in': { from: { opacity: '0', scale: '.95', translate: '0 12px' }, to: { opacity: '1', scale: '1', translate: '0 0' } },
         'dots': { '0%,80%,100%': { opacity: '.25' }, '40%': { opacity: '1' } },
+        // Sin `translate`: el tooltip del tour se centra con translate inline y
+        // una animación que lo anime se lo pisaría.
+        'tip-in': { from: { opacity: '0', scale: '.96' }, to: { opacity: '1', scale: '1' } },
         'slide-up': { from: { translate: '0 100%' }, to: { translate: '0 0' } },
       },
       animation: {
@@ -43,6 +46,7 @@ export default {
         'fade-up': 'fade-up .5s cubic-bezier(.2,.7,.2,1) both',
         'scale-in': 'scale-in .3s cubic-bezier(.2,.7,.2,1) both',
         dots: 'dots 1.2s ease-in-out infinite',
+        'tip-in': 'tip-in .22s cubic-bezier(.2,.7,.2,1) both',
         'slide-up': 'slide-up .3s cubic-bezier(.2,.7,.2,1) both',
       },
     },

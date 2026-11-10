@@ -226,7 +226,13 @@ export function Login() {
             {/* Trailer: solo ≥1024px */}
             <button
               type="button"
-              onClick={() => setTrailer(true)}
+              onClick={() => {
+                // El trailer corre sobre la app real: necesita sesión, pero no
+                // pide credenciales. Al salir, `salir()` la borra y vuelve acá.
+                entrar('estudiante')
+                setTrailer(true)
+                navigate('/propuesta')
+              }}
               className="mt-5 hidden min-h-[44px] items-center gap-2 self-start rounded-xl border border-borde bg-white px-4 text-[13px] font-bold text-noche transition-colors hover:border-mineral hover:text-mineral lg:inline-flex dark:border-[#27425a] dark:bg-noche-800 dark:text-marfil"
             >
               <PlayCircle size={16} />

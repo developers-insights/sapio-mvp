@@ -143,7 +143,7 @@ export function Propuesta() {
         </h2>
         <span className="filete mt-3" />
 
-        <ol className="mt-8 flex flex-wrap gap-3">
+        <ol className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {[1, 2, 3, 4, 5].map((n) => {
             const destacado = n === PASO_DESTACADO
             return (
@@ -151,9 +151,10 @@ export function Propuesta() {
                 key={n}
                 data-anim="paso"
                 className={cn(
-                  'min-w-[240px] flex-1 basis-[240px] rounded-2xl border p-4 sm:p-5',
+                  'min-w-0 rounded-2xl border p-4 sm:p-5',
+                  // El paso 4 (la mesa redonda) es el que cierra la venta: ocupa el doble.
                   destacado
-                    ? 'border-mineral bg-mineral/[.07] shadow-sapio'
+                    ? 'border-mineral bg-mineral/[.07] shadow-sapio lg:col-span-2'
                     : 'border-borde bg-white shadow-sapio dark:border-[#27425a] dark:bg-noche-800',
                 )}
               >

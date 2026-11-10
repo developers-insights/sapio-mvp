@@ -175,7 +175,12 @@ function TabProfesores() {
                   </Boton>
                   {s.estado === 'pendiente' ? (
                     <>
-                      <Boton tam="sm" variante="mineral" onClick={() => aprobar(s)}>
+                      <Boton
+                        tam="sm"
+                        variante="mineral"
+                        onClick={() => aprobar(s)}
+                        {...(s.id === 's-1' ? { 'data-trailer': 'aprobar-profesor' } : {})}
+                      >
                         <CheckCircle2 size={14} />
                         {t('uni.inv.aprobar')}
                       </Boton>
