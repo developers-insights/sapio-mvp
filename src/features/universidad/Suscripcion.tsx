@@ -45,7 +45,7 @@ export function Suscripcion() {
       <div className="mb-6 grid gap-4 lg:grid-cols-[1fr_340px]">
         <section className="card-sapio min-w-0 p-4 sm:p-6">
           <div className="flex flex-wrap items-start gap-3">
-            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-mineral/12 text-mineral">
+            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-mineral/12 text-mineral-texto">
               <CreditCard size={19} />
             </span>
             <div className="min-w-0 flex-1">
@@ -74,7 +74,7 @@ export function Suscripcion() {
           <ul className="mt-5 grid gap-2 sm:grid-cols-2">
             {(lang === 'en' ? plan.incluyeEn : plan.incluyeEs).map((x) => (
               <li key={x} className="flex gap-2 text-[13.5px] leading-relaxed">
-                <CheckCircle2 size={15} className="mt-[3px] shrink-0 text-mineral" />
+                <CheckCircle2 size={15} className="mt-[3px] shrink-0 text-mineral-texto" />
                 {x}
               </li>
             ))}

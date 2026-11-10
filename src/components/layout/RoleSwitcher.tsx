@@ -89,7 +89,7 @@ export function RoleSwitcher({ compacto = false }: { compacto?: boolean }) {
                     {p.nombre} · {lang === 'en' ? p.cargoEn : p.cargoEs}
                   </span>
                 </span>
-                {r === rol ? <Check size={15} className="shrink-0 text-mineral" /> : null}
+                {r === rol ? <Check size={15} className="shrink-0 text-mineral-texto" /> : null}
               </button>
             )
           })}

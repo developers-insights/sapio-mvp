@@ -25,7 +25,7 @@ export function Burbujas({ mensajes, pensando }: { mensajes: Mensaje[]; pensando
           >
             {m.texto}
             {m.nota ? (
-              <span className="mt-2 flex items-center gap-1.5 border-t border-borde pt-2 text-[12px] font-bold text-mineral dark:border-[#27425a]">
+              <span className="mt-2 flex items-center gap-1.5 border-t border-borde pt-2 text-[12px] font-bold text-mineral-texto dark:border-[#27425a]">
                 <Sparkles size={12} /> {m.nota}
               </span>
             ) : null}

@@ -97,7 +97,7 @@ export function Invitacion() {
 
           {paso === 3 ? (
             <div className="mt-6 space-y-3">
-              <p className="flex items-center gap-2 text-[14px] font-bold text-mineral">
+              <p className="flex items-center gap-2 text-[14px] font-bold text-mineral-texto">
                 <CheckCircle2 size={17} /> {t('uni.token.aceptada')}
               </p>
               <Boton

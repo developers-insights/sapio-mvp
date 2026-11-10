@@ -121,7 +121,7 @@ export function AsistenteFlotante() {
                   key={clave}
                   type="button"
                   onClick={() => preguntar(t(clave))}
-                  className="min-h-[34px] shrink-0 whitespace-nowrap rounded-full border border-borde bg-white px-3 text-[11.5px] font-bold text-tinta-sec transition-colors hover:border-mineral hover:text-mineral dark:border-[#27425a] dark:bg-noche-700 dark:text-marfil/70"
+                  className="min-h-[34px] shrink-0 whitespace-nowrap rounded-full border border-borde bg-white px-3 text-[11.5px] font-bold text-tinta-sec transition-colors hover:border-mineral hover:text-mineral-texto dark:border-[#27425a] dark:bg-noche-700 dark:text-marfil/70"
                 >
                   {t(clave)}
                 </button>

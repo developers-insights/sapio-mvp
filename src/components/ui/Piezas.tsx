@@ -252,7 +252,7 @@ export function PreviewBanner({
           <ul className="mt-2.5 grid gap-2 md:grid-cols-3">
             {bullets.map((b) => (
               <li key={b} className="flex gap-2 text-[13px] leading-relaxed text-tinta-sec dark:text-marfil/70">
-                <Check size={14} className="mt-[3px] shrink-0 text-mineral" />
+                <Check size={14} className="mt-[3px] shrink-0 text-mineral-texto" />
                 <span>{b}</span>
               </li>
             ))}
@@ -280,7 +280,7 @@ export function Kpi({
 }) {
   const colorValor = {
     neutro: 'text-noche dark:text-marfil',
-    mineral: 'text-mineral dark:text-mineral-300',
+    mineral: 'text-mineral-texto dark:text-mineral-300',
     terroso: 'text-terroso dark:text-[#d79a8c]',
     champan: 'text-champan-700 dark:text-champan',
   }[tono]
@@ -297,7 +297,7 @@ export function Kpi({
         <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-tinta-sec dark:text-marfil/55">
           {etiqueta}
         </p>
-        {icono ? <span className="shrink-0 text-mineral">{icono}</span> : null}
+        {icono ? <span className="shrink-0 text-mineral-texto">{icono}</span> : null}
       </div>
       <p
         className={cn('num mt-2 font-black leading-none', colorValor)}
@@ -363,7 +363,7 @@ export function EstadoError({ titulo, detalle, onReintentar }: { titulo: string;
         <button
           type="button"
           onClick={onReintentar}
-          className="min-h-[44px] rounded-xl border border-borde px-4 text-sm font-bold transition-colors hover:border-mineral hover:text-mineral dark:border-[#27425a]"
+          className="min-h-[44px] rounded-xl border border-borde px-4 text-sm font-bold transition-colors hover:border-mineral hover:text-mineral-texto dark:border-[#27425a]"
         >
           {t('app.reintentar')}
         </button>

@@ -255,7 +255,7 @@ export function Tour() {
         style={estiloTooltip}
       >
         <div className="flex items-start gap-2">
-          <p className="num min-w-0 flex-1 text-[11px] font-bold uppercase tracking-[0.12em] text-mineral">
+          <p className="num min-w-0 flex-1 text-[11px] font-bold uppercase tracking-[0.12em] text-mineral-texto">
             {t('tour.paso', { n: indice + 1, total: pasos.length })}
           </p>
           <button

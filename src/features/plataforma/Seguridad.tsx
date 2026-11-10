@@ -40,7 +40,7 @@ export function Seguridad() {
       <ul className="mb-4 grid gap-3 md:grid-cols-2">
         {capas.map((c) => (
           <li key={c.id} className="card-sapio flex min-w-0 items-start gap-3 p-4 sm:p-5">
-            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-mineral/12 text-mineral">
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-mineral/12 text-mineral-texto">
               {c.icono}
             </span>
             <div className="min-w-0 flex-1">
@@ -79,7 +79,7 @@ export function Seguridad() {
 
         <section className="card-sapio min-w-0 p-4 sm:p-5">
           <div className="flex items-start gap-3">
-            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-mineral/12 text-mineral">
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-mineral/12 text-mineral-texto">
               <DatabaseBackup size={18} />
             </span>
             <div className="min-w-0 flex-1">

@@ -44,7 +44,7 @@ export function Mesas() {
                   className="card-sapio flex h-full w-full flex-col p-4 text-left transition-[border-color,box-shadow] hover:border-mineral hover:shadow-sapio-lg sm:p-5"
                 >
                   <span className="flex items-start gap-3">
-                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-mineral/12 text-mineral">
+                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-mineral/12 text-mineral-texto">
                       <Table2 size={18} />
                     </span>
                     <span className="min-w-0 flex-1">

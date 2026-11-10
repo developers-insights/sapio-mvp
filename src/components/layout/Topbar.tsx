@@ -79,7 +79,7 @@ export function Topbar() {
             type="button"
             onClick={() => setTour(true)}
             data-tour="boton-tour"
-            className="inline-flex min-h-[40px] items-center gap-1.5 rounded-lg px-2.5 text-[13px] font-bold text-mineral transition-colors hover:bg-mineral/10"
+            className="inline-flex min-h-[40px] items-center gap-1.5 rounded-lg px-2.5 text-[13px] font-bold text-mineral-texto transition-colors hover:bg-mineral/10"
           >
             <Sparkles size={16} />
             <span className="hidden sm:inline">{t('app.tour')}</span>

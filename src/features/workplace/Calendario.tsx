@@ -148,7 +148,7 @@ export function Calendario() {
               const hoyEs = isSameDay(d, dia(0))
               return (
                 <div key={claveFecha(d)} className="min-h-[300px] border-r border-borde p-2 last:border-r-0 dark:border-[#27425a]">
-                  <p className={cn('mb-2 text-center text-[11px] font-bold uppercase tracking-wider', hoyEs ? 'text-mineral' : 'text-tinta-sec dark:text-marfil/50')}>
+                  <p className={cn('mb-2 text-center text-[11px] font-bold uppercase tracking-wider', hoyEs ? 'text-mineral-texto' : 'text-tinta-sec dark:text-marfil/50')}>
                     {fmt(d, 'EEE d', lang)}
                   </p>
                   <ul className="space-y-1.5">

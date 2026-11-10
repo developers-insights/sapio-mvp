@@ -51,7 +51,7 @@ export function VistaPreviaCampus() {
 
         {campus.secciones.institucional ? (
           <section className="px-5 py-6">
-            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-mineral">
+            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-mineral-texto">
               {t('campus.institucional.kicker')}
             </p>
             <h3 className="mt-1.5 text-[16px] font-black">{t('campus.institucional.titulo')}</h3>
@@ -63,7 +63,7 @@ export function VistaPreviaCampus() {
 
         {campus.secciones.facultades ? (
           <section className="border-t border-borde px-5 py-6">
-            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-mineral">
+            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-mineral-texto">
               {t('campus.facultades.kicker')}
             </p>
             <h3 className="mt-1.5 text-[16px] font-black">{t('campus.facultades.titulo')}</h3>
@@ -84,7 +84,7 @@ export function VistaPreviaCampus() {
 
         {campus.secciones.programas ? (
           <section className="border-t border-borde px-5 py-6">
-            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-mineral">
+            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-mineral-texto">
               {t('campus.programas.kicker')}
             </p>
             <h3 className="mt-1.5 text-[16px] font-black">{t('campus.programas.titulo')}</h3>
@@ -100,7 +100,7 @@ export function VistaPreviaCampus() {
 
         {campus.secciones.contacto ? (
           <section className="border-t border-borde px-5 py-6">
-            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-mineral">
+            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-mineral-texto">
               {t('campus.contacto.kicker')}
             </p>
             <h3 className="mt-1.5 text-[16px] font-black">{t('campus.contacto.titulo')}</h3>
@@ -110,7 +110,7 @@ export function VistaPreviaCampus() {
         ) : null}
 
         <footer className="flex items-center gap-2 border-t border-borde px-5 py-4">
-          <Isotipo size={13} className="text-mineral" />
+          <Isotipo size={13} className="text-mineral-texto" />
           <p className="text-[10.5px] text-tinta-sec">{t('campus.footer')}</p>
         </footer>
       </div>

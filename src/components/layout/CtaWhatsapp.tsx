@@ -20,7 +20,7 @@ export function CtaWhatsapp({
     primario: 'bg-noche text-marfil hover:bg-[#1b3147] dark:bg-marfil dark:text-noche dark:hover:bg-white',
     mineral: 'bg-mineral text-white hover:bg-mineral-600',
     contorno:
-      'border border-borde bg-white text-noche hover:border-mineral hover:text-mineral dark:bg-noche-800 dark:text-marfil dark:border-[#27425a]',
+      'border border-borde bg-white text-noche hover:border-mineral hover:text-mineral-texto dark:bg-noche-800 dark:text-marfil dark:border-[#27425a]',
     claro: 'bg-marfil text-noche hover:bg-white',
   }[variante]
   const tamanos = { sm: 'min-h-[40px] px-3 text-[13px]', md: 'min-h-[44px] px-4 text-sm', lg: 'min-h-[52px] px-6 text-[15px]' }[tam]

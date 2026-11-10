@@ -169,7 +169,7 @@ export function Buscador() {
                           }}
                           className="flex w-full min-h-[44px] items-center gap-2.5 rounded-lg px-2.5 py-2 text-left transition-colors hover:bg-marfil-200 dark:hover:bg-noche-700"
                         >
-                          {r.personaId ? <Avatar personaId={r.personaId} size={24} /> : <I size={16} className="shrink-0 text-mineral" />}
+                          {r.personaId ? <Avatar personaId={r.personaId} size={24} /> : <I size={16} className="shrink-0 text-mineral-texto" />}
                           <span className="min-w-0 flex-1">
                             <span className="block truncate text-[13.5px] font-bold">{r.titulo}</span>
                             <span className="block truncate text-[11.5px] text-tinta-sec dark:text-marfil/50">{r.detalle}</span>

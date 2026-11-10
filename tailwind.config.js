@@ -13,7 +13,15 @@ export default {
         noche: { DEFAULT: '#101D2B', 700: '#1D3245', 800: '#172839', 900: '#101D2B' },
         marfil: { DEFAULT: '#F6F2E9', 200: '#EFE9DB', 300: '#E8E1D3' },
         champan: { DEFAULT: '#C9A974', 600: '#A8854B', 700: '#8A6B38' },
-        mineral: { DEFAULT: '#527D79', 600: '#456A66', 700: '#3A5A57', 300: '#9BBAB7' },
+        mineral: {
+          DEFAULT: '#527D79',
+          // Para TEXTO: el verde del manual sobre marfil da 4.11:1 y no llega a AA.
+          // Este token se aclara en oscuro y se oscurece en claro, vía variable CSS.
+          texto: 'var(--mineral-texto)',
+          600: '#456A66',
+          700: '#3A5A57',
+          300: '#9BBAB7',
+        },
         pizarra: { DEFAULT: '#25465C', 600: '#1E3A4C' },
         terroso: { DEFAULT: '#9C5B4E', 600: '#854A3F' },
         tinta: { DEFAULT: '#101D2B', sec: '#5E6B72' },

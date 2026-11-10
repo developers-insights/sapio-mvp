@@ -80,7 +80,7 @@ export function CampusEditor() {
             onClick={() => toast({ titulo: t('toast.accionMock'), detalle: t('wp.dev.archivosHoy'), tono: 'info' })}
           >
             <Upload size={15} />
-            {t('campus.editor.iniciales')}
+            {t('campus.editor.subirLogo')}
           </Boton>
         </div>
       </section>

@@ -135,7 +135,7 @@ export function UniversidadPanel() {
 
         <aside className="card-sapio min-w-0 p-4 sm:p-5">
           <h2 className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/60">
-            <CreditCard size={14} className="text-mineral" /> {t('uni.panel.suscripcion')}
+            <CreditCard size={14} className="text-mineral-texto" /> {t('uni.panel.suscripcion')}
           </h2>
           <p className="mt-3 text-[17px] font-black">
             {lang === 'en' ? plan.nombreEn : plan.nombreEs} · {t('plan.anual')}

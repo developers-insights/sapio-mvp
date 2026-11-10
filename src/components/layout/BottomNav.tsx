@@ -51,7 +51,7 @@ export function BottomNav() {
                   data-tour={`tab-${item.id}`}
                   className={cn(
                     'flex min-h-[60px] flex-col items-center justify-center gap-1 px-1 py-1.5 text-[10px] font-bold leading-none transition-colors',
-                    activo ? 'text-mineral' : 'text-tinta-sec dark:text-marfil/55',
+                    activo ? 'text-mineral-texto' : 'text-tinta-sec dark:text-marfil/55',
                   )}
                 >
                   <Icono nombre={item.icono} size={19} />
@@ -67,7 +67,7 @@ export function BottomNav() {
               data-tour="tab-mas"
               className={cn(
                 'flex w-full min-h-[60px] flex-col items-center justify-center gap-1 px-1 py-1.5 text-[10px] font-bold leading-none transition-colors',
-                enMas ? 'text-mineral' : 'text-tinta-sec dark:text-marfil/55',
+                enMas ? 'text-mineral-texto' : 'text-tinta-sec dark:text-marfil/55',
               )}
             >
               <Ellipsis size={19} />
@@ -92,7 +92,7 @@ export function BottomNav() {
                       onClick={() => setSheet(false)}
                       className="flex min-h-[48px] items-center gap-2.5 rounded-xl border border-borde bg-white px-3 text-[13px] font-bold dark:border-[#27425a] dark:bg-noche-800"
                     >
-                      <Icono nombre={item.icono} size={16} className="shrink-0 text-mineral" />
+                      <Icono nombre={item.icono} size={16} className="shrink-0 text-mineral-texto" />
                       <span className="truncate">{t(item.claveLabel)}</span>
                     </NavLink>
                   </li>

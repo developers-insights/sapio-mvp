@@ -219,7 +219,7 @@ export function PlataformaRoles() {
 
       <section className="card-sapio mt-6 p-4 sm:p-5">
         <h2 className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/60">
-          <History size={14} className="text-mineral" /> {t('plat.roles.historial')}
+          <History size={14} className="text-mineral-texto" /> {t('plat.roles.historial')}
         </h2>
         <ol className="mt-3 space-y-3 border-l border-borde pl-4 dark:border-[#27425a]">
           {HISTORIAL.map((h) => (

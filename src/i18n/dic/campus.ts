@@ -9,6 +9,7 @@ export const campus: Dic = {
   'campus.editor.nombre': { es: 'Nombre de la institución', en: 'Institution name' },
   'campus.editor.lema': { es: 'Lema', en: 'Tagline' },
   'campus.editor.iniciales': { es: 'Logo (iniciales)', en: 'Logo (initials)' },
+  'campus.editor.subirLogo': { es: 'Subir un logo', en: 'Upload a logo' },
   'campus.editor.colorPrimario': { es: 'Color primario', en: 'Primary colour' },
   'campus.editor.colorAcento': { es: 'Color de acento', en: 'Accent colour' },
   'campus.editor.secciones': { es: 'Secciones de la página', en: 'Page sections' },

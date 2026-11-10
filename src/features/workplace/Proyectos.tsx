@@ -102,7 +102,7 @@ export function ProyectoDetalle() {
       <button
         type="button"
         onClick={() => navigate('/workplace/proyectos')}
-        className="mb-4 inline-flex min-h-[44px] items-center gap-2 text-[13px] font-bold text-mineral hover:underline"
+        className="mb-4 inline-flex min-h-[44px] items-center gap-2 text-[13px] font-bold text-mineral-texto hover:underline"
       >
         <ArrowLeft size={15} /> {t('wp.pr.titulo')}
       </button>
@@ -134,8 +134,8 @@ export function ProyectoDetalle() {
       ) : null}
 
       <div className="grid gap-4 lg:grid-cols-[1fr_320px]">
-        <div className="space-y-4">
-          <section className="card-sapio p-4 sm:p-5">
+        <div className="min-w-0 space-y-4">
+          <section className="card-sapio min-w-0 p-4 sm:p-5">
             <h2 className="mb-3 text-sm font-black uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/60">
               {t('wp.pr.tareasDel')}
             </h2>
@@ -143,15 +143,21 @@ export function ProyectoDetalle() {
               {delProyecto.map((x) => (
                 <li key={x.id} className="flex flex-wrap items-center gap-2.5 rounded-xl border border-borde p-3 dark:border-[#27425a]">
                   <Avatar personaId={x.responsableId} size={26} />
-                  <span className="min-w-0 flex-1 text-[13.5px] font-bold leading-snug">{campo(x, 'titulo', lang)}</span>
-                  <span className="num text-[12px] text-tinta-sec dark:text-marfil/50">{fechaCorta(x.vence, lang)}</span>
-                  <EstadoBadge estado={x.estado} />
+                  <span className="min-w-0 flex-1 basis-[60%] text-[13.5px] font-bold leading-snug">
+                    {campo(x, 'titulo', lang)}
+                  </span>
+                  <span className="num shrink-0 text-[12px] text-tinta-sec dark:text-marfil/50">
+                    {fechaCorta(x.vence, lang)}
+                  </span>
+                  <span className="shrink-0">
+                    <EstadoBadge estado={x.estado} />
+                  </span>
                 </li>
               ))}
             </ul>
           </section>
 
-          <section className="card-sapio p-4 sm:p-5">
+          <section className="card-sapio min-w-0 p-4 sm:p-5">
             <h2 className="mb-3 text-sm font-black uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/60">
               {t('wp.pr.docsDel')}
             </h2>
@@ -172,8 +178,8 @@ export function ProyectoDetalle() {
           </section>
         </div>
 
-        <aside className="space-y-4">
-          <section className="card-sapio p-4 sm:p-5">
+        <aside className="min-w-0 space-y-4">
+          <section className="card-sapio min-w-0 p-4 sm:p-5">
             <h2 className="mb-3 text-sm font-black uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/60">
               {t('wp.pr.miembros')}
             </h2>
@@ -197,11 +203,11 @@ export function ProyectoDetalle() {
             </ul>
           </section>
 
-          <section className="card-sapio p-4 sm:p-5">
+          <section className="card-sapio min-w-0 p-4 sm:p-5">
             <h2 className="mb-2 text-sm font-black uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/60">
               {t('wp.pr.progreso')}
             </h2>
-            <p className="num text-3xl font-black text-mineral">{p.progreso}%</p>
+            <p className="num text-3xl font-black text-mineral-texto">{p.progreso}%</p>
             <span className="mt-2 block h-2 overflow-hidden rounded-full bg-marfil-200 dark:bg-noche-700">
               <span className="block h-full rounded-full bg-mineral" style={{ width: `${p.progreso}%` }} />
             </span>

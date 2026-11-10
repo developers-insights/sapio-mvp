@@ -18,7 +18,11 @@ const PARES: Array<[string, string, string]> = [
   ['#5E6B72', '#FFFFFF', 'Texto secundario / Blanco'],
   ['#5E6B72', '#F6F2E9', 'Texto secundario / Marfil'],
   ['#F6F2E9', '#101D2B', 'Marfil / Azul noche'],
-  ['#527D79', '#FFFFFF', 'Verde mineral / Blanco'],
+  ['#FFFFFF', '#527D79', 'Blanco / Verde mineral (relleno)'],
+  ['#456A66', '#F6F2E9', 'Verde mineral texto / Marfil'],
+  ['#456A66', '#FFFFFF', 'Verde mineral texto / Blanco'],
+  ['#9BBAB7', '#101D2B', 'Verde mineral 300 / Azul noche'],
+  ['#C9A974', '#101D2B', 'Champán / Azul noche'],
   ['#3A5A57', '#FFFFFF', 'Verde mineral 700 / Blanco'],
   ['#25465C', '#FFFFFF', 'Azul pizarra / Blanco'],
   ['#8A6B38', '#FFFFFF', 'Champán 700 / Blanco'],
@@ -94,7 +98,7 @@ export function Marca() {
               <div className="p-3.5">
                 <p className="text-[13px] font-black">{c.nombre}</p>
                 <p className="num text-[12px] text-tinta-sec dark:text-marfil/55">{c.hex}</p>
-                <p className="num mt-1.5 text-[12px] font-bold text-mineral">{c.pct}%</p>
+                <p className="num mt-1.5 text-[12px] font-bold text-mineral-texto">{c.pct}%</p>
                 <p className="mt-1 text-[11.5px] leading-snug text-tinta-sec dark:text-marfil/50">
                   {lang === 'en' ? c.uso.en : c.uso.es}
                 </p>
@@ -246,7 +250,7 @@ export function Marca() {
         <p className="mt-3 text-[13px] text-tinta-sec dark:text-marfil/60">{t('plat.marca.estadoNota')}</p>
         <ul className="mt-4 grid gap-3 md:grid-cols-3">
           <li className="card-sapio flex flex-col items-center gap-2 p-6 text-center">
-            <Loader2 size={20} className="animate-spin text-mineral" />
+            <Loader2 size={20} className="animate-spin text-mineral-texto" />
             <p className="text-[13px] font-bold">{t('app.cargando')}</p>
           </li>
           <li className="card-sapio flex flex-col items-center gap-2 p-6 text-center">
@@ -296,7 +300,7 @@ export function Marca() {
                   <span
                     className={cn(
                       'inline-flex items-center gap-1 text-[10.5px] font-bold',
-                      pasa ? 'text-mineral' : 'text-terroso',
+                      pasa ? 'text-mineral-texto' : 'text-terroso',
                     )}
                   >
                     {pasa ? <CheckCircle2 size={10} /> : <CircleX size={10} />}

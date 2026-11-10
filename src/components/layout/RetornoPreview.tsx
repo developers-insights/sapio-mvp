@@ -57,7 +57,7 @@ export function RetornoPreview() {
             cerrar()
             navigate('/propuesta')
           }}
-          className="relative inline-flex min-h-[44px] items-center gap-2 rounded-full border border-mineral bg-white px-4 text-[13px] font-black text-mineral shadow-sapio-lg transition-colors hover:bg-mineral hover:text-white dark:bg-noche-800"
+          className="relative inline-flex min-h-[44px] items-center gap-2 rounded-full border border-mineral bg-white px-4 text-[13px] font-black text-mineral-texto shadow-sapio-lg transition-colors hover:bg-mineral hover:text-white dark:bg-noche-800"
         >
           <ArrowLeft size={15} />
           {t('preview.volver')}

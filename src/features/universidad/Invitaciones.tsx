@@ -438,7 +438,7 @@ function TabEstudiantes() {
       {/* CSV ya cargado */}
       <section className="card-sapio mb-5 p-4 sm:p-5">
         <div className="flex flex-wrap items-center gap-2.5">
-          <FileSpreadsheet size={18} className="shrink-0 text-mineral" />
+          <FileSpreadsheet size={18} className="shrink-0 text-mineral-texto" />
           <div className="min-w-0 flex-1">
             <p className="text-sm font-black">{t('uni.inv.cargaCSV')}</p>
             <p className="num truncate text-[12.5px] text-tinta-sec dark:text-marfil/55">{csvNombre}</p>

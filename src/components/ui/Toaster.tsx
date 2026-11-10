@@ -17,7 +17,7 @@ export function Toaster() {
     >
       {toasts.map((x) => {
         const icono = {
-          ok: <CheckCircle2 size={16} className="text-mineral" />,
+          ok: <CheckCircle2 size={16} className="text-mineral-texto" />,
           info: <Info size={16} className="text-pizarra dark:text-[#8fb6cf]" />,
           alerta: <TriangleAlert size={16} className="text-champan-700 dark:text-champan" />,
           error: <CircleX size={16} className="text-terroso" />,

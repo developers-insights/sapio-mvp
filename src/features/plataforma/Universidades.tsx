@@ -297,10 +297,10 @@ where universidad_id = 'u-valmira';`}
 
         <div className="rounded-xl border border-mineral/35 bg-mineral/[.07] p-3.5">
           <p className="flex items-center gap-2 text-[13px] font-black">
-            <ShieldCheck size={15} className="shrink-0 text-mineral" />
+            <ShieldCheck size={15} className="shrink-0 text-mineral-texto" />
             {t('plat.uni.pruebasAuto')}
           </p>
-          <p className="num mt-1 text-[13px] font-bold text-mineral">{t('plat.uni.pruebasAutoDet')}</p>
+          <p className="num mt-1 text-[13px] font-bold text-mineral-texto">{t('plat.uni.pruebasAutoDet')}</p>
           <span className="mt-2 block h-1.5 overflow-hidden rounded-full bg-white dark:bg-noche-800">
             <span className="block h-full w-full rounded-full bg-mineral" />
           </span>
@@ -339,7 +339,7 @@ export function UniversidadDetalle() {
       <button
         type="button"
         onClick={() => navigate('/plataforma/universidades')}
-        className="mb-4 inline-flex min-h-[44px] items-center gap-2 text-[13px] font-bold text-mineral hover:underline"
+        className="mb-4 inline-flex min-h-[44px] items-center gap-2 text-[13px] font-bold text-mineral-texto hover:underline"
       >
         <ArrowLeft size={15} /> {t('plat.uni.titulo')}
       </button>
@@ -354,7 +354,7 @@ export function UniversidadDetalle() {
       <div className="grid gap-4 lg:grid-cols-2">
         <section className="card-sapio p-4 sm:p-5">
           <h2 className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/60">
-            <Settings2 size={14} className="text-mineral" /> {t('plat.uni.config')}
+            <Settings2 size={14} className="text-mineral-texto" /> {t('plat.uni.config')}
           </h2>
           <dl className="mt-3 grid grid-cols-2 gap-3 text-[13px]">
             <div>
@@ -385,7 +385,7 @@ export function UniversidadDetalle() {
 
         <section className="card-sapio p-4 sm:p-5">
           <h2 className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/60">
-            <HardDrive size={14} className="text-mineral" /> {t('plat.uni.almacenamiento')}
+            <HardDrive size={14} className="text-mineral-texto" /> {t('plat.uni.almacenamiento')}
           </h2>
           <p className="mt-2 text-[13px] leading-relaxed text-tinta-sec dark:text-marfil/60">
             {t('plat.uni.almacenamientoDet')}

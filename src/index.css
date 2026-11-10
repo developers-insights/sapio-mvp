@@ -5,9 +5,12 @@
 @layer base {
   :root {
     color-scheme: light;
+    /* Verde mineral legible como texto (AA) sobre marfil y blanco. */
+    --mineral-texto: #456a66;
   }
   .dark {
     color-scheme: dark;
+    --mineral-texto: #9bbab7;
   }
   html,
   body,
@@ -51,10 +54,7 @@
 
 @layer components {
   .kicker {
-    @apply text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] text-mineral;
-  }
-  .dark .kicker {
-    @apply text-mineral-300;
+    @apply text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] text-mineral-texto;
   }
   .filete {
     @apply block h-[3px] w-[88px] bg-champan;

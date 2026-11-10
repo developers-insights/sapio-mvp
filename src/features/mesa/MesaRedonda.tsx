@@ -355,7 +355,7 @@ export function MesaRedonda() {
               <button
                 type="button"
                 onClick={() => setInvitarAbierto(true)}
-                className="flex min-h-[36px] items-center gap-1.5 rounded-full border border-dashed border-borde px-3 text-[12px] font-bold text-tinta-sec transition-colors hover:border-mineral hover:text-mineral dark:border-[#27425a] dark:text-marfil/60"
+                className="flex min-h-[36px] items-center gap-1.5 rounded-full border border-dashed border-borde px-3 text-[12px] font-bold text-tinta-sec transition-colors hover:border-mineral hover:text-mineral-texto dark:border-[#27425a] dark:text-marfil/60"
               >
                 <UserPlus size={13} />
                 <span className="hidden sm:inline">{t('mesa.invitar')}</span>
@@ -380,7 +380,7 @@ export function MesaRedonda() {
         </div>
 
         {escribiendo ? (
-          <p className="mt-3 inline-flex items-center gap-1.5 text-[12.5px] font-bold text-mineral">
+          <p className="mt-3 inline-flex items-center gap-1.5 text-[12.5px] font-bold text-mineral-texto">
             <span className="flex gap-0.5">
               <span className="h-1.5 w-1.5 animate-dots rounded-full bg-mineral" />
               <span className="h-1.5 w-1.5 animate-dots rounded-full bg-mineral [animation-delay:.15s]" />
@@ -497,7 +497,7 @@ export function MesaRedonda() {
           type="button"
           onClick={() => setHojaComentarios(true)}
           data-trailer="mesa-comentarios"
-          className="fixed right-4 z-[46] inline-flex min-h-[48px] items-center gap-2 rounded-full border border-mineral bg-white px-4 text-[13px] font-black text-mineral shadow-sapio-lg dark:bg-noche-800"
+          className="fixed right-4 z-[46] inline-flex min-h-[48px] items-center gap-2 rounded-full border border-mineral bg-white px-4 text-[13px] font-black text-mineral-texto shadow-sapio-lg dark:bg-noche-800"
           style={{ bottom: offsetInferior + (puedeEditar ? 64 : 12) }}
         >
           <MessageSquareText size={16} />
@@ -560,7 +560,7 @@ export function MesaRedonda() {
                     setVersionesAbierto(false)
                     toast({ titulo: t('mesa.restaurada', { v: v.etiqueta }), detalle: t('toast.accionMockDetalle'), tono: 'ok' })
                   }}
-                  className="mt-2 inline-flex min-h-[36px] items-center gap-1.5 rounded-lg border border-borde px-2.5 text-[12px] font-bold transition-colors hover:border-mineral hover:text-mineral dark:border-[#27425a]"
+                  className="mt-2 inline-flex min-h-[36px] items-center gap-1.5 rounded-lg border border-borde px-2.5 text-[12px] font-bold transition-colors hover:border-mineral hover:text-mineral-texto dark:border-[#27425a]"
                 >
                   <RotateCcw size={12} />
                   {t('mesa.restaurar')}

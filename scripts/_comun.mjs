@@ -11,9 +11,11 @@ export const RUTAS_CLAVE = [
   ['/#/workplace/tareas', 'tareas'],
   ['/#/workplace/documentos', 'documentos'],
   ['/#/workplace/proyectos', 'proyectos'],
+  ['/#/workplace/proyectos/pr-tesis', 'proyecto-detalle'],
   ['/#/workplace/notificaciones', 'notificaciones'],
   ['/#/workplace/mesas', 'mesas'],
   ['/#/mesa/tesis-metodologia', 'mesa-redonda'],
+  ['/#/chat', 'chat-lista'],
   ['/#/chat/proyecto-tesis', 'chat'],
   ['/#/workplace/asistente', 'asistente'],
   ['/#/universidad/panel', 'uni-panel'],
@@ -25,6 +27,7 @@ export const RUTAS_CLAVE = [
   ['/#/universidad/suscripcion', 'suscripcion'],
   ['/#/plataforma/panel', 'plat-panel'],
   ['/#/plataforma/universidades', 'plat-universidades'],
+  ['/#/plataforma/universidades/u-kestrel', 'plat-universidad-detalle'],
   ['/#/plataforma/planes', 'plat-planes'],
   ['/#/plataforma/roles', 'plat-roles'],
   ['/#/plataforma/auditoria', 'plat-auditoria'],
@@ -122,4 +125,30 @@ export async function sinScrollHorizontal(page) {
   return page.evaluate(
     () => document.documentElement.scrollWidth === document.documentElement.clientWidth,
   )
+}
+
+/**
+ * Siembra la sesión (y tema/idioma) ANTES de que corra cualquier script de la
+ * página: así la primera navegación es directa a la ruta pedida, sin recargar.
+ */
+export async function sembrarSesion(ctx, rol = 'estudiante', extra = {}) {
+  await ctx.addInitScript(
+    ([r, ex]) => {
+      try {
+        sessionStorage.setItem('sapio_sesion', '1')
+        sessionStorage.setItem('sapio_rol', r)
+        sessionStorage.setItem('welcome_modal_seen', '1')
+        for (const [k, v] of Object.entries(ex)) localStorage.setItem(k, v)
+      } catch {
+        /* modo privado */
+      }
+    },
+    [rol, extra],
+  )
+}
+
+/** Entrada directa a una ruta, con el contexto ya sembrado. */
+export async function irDirecto(page, base, ruta) {
+  await page.goto(`${base}${ruta}`, { waitUntil: 'load' })
+  await page.waitForTimeout(520)
 }

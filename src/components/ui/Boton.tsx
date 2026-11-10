@@ -11,13 +11,13 @@ const variantes = cva(
           'bg-noche text-marfil hover:bg-[#1b3147] dark:bg-marfil dark:text-noche dark:hover:bg-white',
         mineral: 'bg-mineral text-white hover:bg-mineral-600',
         secundario:
-          'bg-white text-noche border border-borde hover:border-mineral hover:text-mineral dark:bg-noche-800 dark:text-marfil dark:border-[#27425a] dark:hover:border-mineral',
+          'bg-white text-noche border border-borde hover:border-mineral hover:text-mineral-texto dark:bg-noche-800 dark:text-marfil dark:border-[#27425a] dark:hover:border-mineral',
         fantasma:
           'bg-transparent text-tinta-sec hover:bg-marfil-200 hover:text-noche dark:text-marfil/70 dark:hover:bg-noche-700 dark:hover:text-marfil',
         contorno:
           'bg-transparent text-noche border border-noche hover:bg-noche hover:text-marfil dark:text-marfil dark:border-marfil/40 dark:hover:bg-marfil dark:hover:text-noche',
         peligro: 'bg-terroso text-white hover:bg-terroso-600',
-        enlace: 'bg-transparent text-mineral underline-offset-4 hover:underline px-0',
+        enlace: 'bg-transparent text-mineral-texto underline-offset-4 hover:underline px-0',
       },
       tam: {
         sm: 'h-9 px-3 text-[13px]',

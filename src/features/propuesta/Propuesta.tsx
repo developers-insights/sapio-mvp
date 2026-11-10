@@ -217,7 +217,7 @@ export function Propuesta() {
                 <ul className="mt-3.5 space-y-1.5">
                   {m.clavesBullets.map((b) => (
                     <li key={b} className="flex gap-2 text-[12.5px] leading-snug">
-                      <Check size={14} className="mt-[2px] shrink-0 text-mineral" />
+                      <Check size={14} className="mt-[2px] shrink-0 text-mineral-texto" />
                       <span>{t(b)}</span>
                     </li>
                   ))}
@@ -225,7 +225,7 @@ export function Propuesta() {
                 <button
                   type="button"
                   onClick={() => verEnDemo(m)}
-                  className="no-print mt-auto inline-flex min-h-[44px] items-center gap-1.5 pt-4 text-[13px] font-black text-mineral transition-colors hover:text-mineral-700"
+                  className="no-print mt-auto inline-flex min-h-[44px] items-center gap-1.5 pt-4 text-[13px] font-black text-mineral-texto transition-colors hover:text-mineral-700"
                 >
                   {t('prop.verEnDemo')}
                   <ArrowUpRight size={15} />
@@ -390,12 +390,12 @@ function BloqueInversion() {
               <p className="mt-3 text-[clamp(16px,2.4vw,20px)] font-black">
                 {t('prop.inv.adelantado', { pct: MONTOS.descuentoPct })}
               </p>
-              <p className="num mt-3 font-black leading-none text-mineral" style={{ fontSize: 'clamp(32px,6.5vw,46px)' }}>
+              <p className="num mt-3 font-black leading-none text-mineral-texto" style={{ fontSize: 'clamp(32px,6.5vw,46px)' }}>
                 {usd(MONTOS.fase1.conDescuento)}
               </p>
               <p className="num mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] text-tinta-sec dark:text-marfil/60">
                 <span className="line-through">{t('prop.inv.listaTachada', { monto: usd(MONTOS.fase1.total) })}</span>
-                <span className="font-bold text-mineral">
+                <span className="font-bold text-mineral-texto">
                   {t('prop.inv.ahorro', { monto: usd(MONTOS.fase1.ahorro) })}
                 </span>
               </p>
@@ -460,13 +460,13 @@ function BloqueInversion() {
             {/* Garantía */}
             <div className="mt-4 rounded-2xl border border-borde p-5 dark:border-[#27425a]">
               <p className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/60">
-                <ShieldCheck size={15} className="shrink-0 text-mineral" />
+                <ShieldCheck size={15} className="shrink-0 text-mineral-texto" />
                 {t('prop.inv.garantia')}
               </p>
               <ul className="mt-3 space-y-2">
                 {['prop.inv.garantia1', 'prop.inv.garantia2', 'prop.inv.garantia3'].map((k) => (
                   <li key={k} className="flex gap-2 text-[13.5px] leading-relaxed">
-                    <Check size={15} className="mt-[3px] shrink-0 text-mineral" />
+                    <Check size={15} className="mt-[3px] shrink-0 text-mineral-texto" />
                     {t(k)}
                   </li>
                 ))}

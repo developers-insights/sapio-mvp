@@ -121,7 +121,7 @@ export function Tareas() {
                             <span className={cn('num text-[11.5px]', d < 0 && x.estado !== 'hecha' ? 'text-terroso' : 'text-tinta-sec dark:text-marfil/50')}>
                               {fechaCorta(x.vence, lang)}
                             </span>
-                            {x.creadaPorAsistente ? <Sparkles size={12} className="ml-auto text-mineral" /> : null}
+                            {x.creadaPorAsistente ? <Sparkles size={12} className="ml-auto text-mineral-texto" /> : null}
                           </div>
                           <div className="mt-2.5 flex flex-wrap gap-1">
                             {COLUMNAS.filter((c) => c !== col).map((c) => (
@@ -129,7 +129,7 @@ export function Tareas() {
                                 key={c}
                                 type="button"
                                 onClick={() => { cambiarEstado(x.id, c); toast({ titulo: t('wp.tareas.cambiada'), tono: 'ok' }) }}
-                                className="min-h-[32px] rounded-lg border border-borde px-2 text-[10.5px] font-bold text-tinta-sec transition-colors hover:border-mineral hover:text-mineral dark:border-[#27425a] dark:text-marfil/55"
+                                className="min-h-[32px] rounded-lg border border-borde px-2 text-[10.5px] font-bold text-tinta-sec transition-colors hover:border-mineral hover:text-mineral-texto dark:border-[#27425a] dark:text-marfil/55"
                               >
                                 → {t(`estado.${c}`)}
                               </button>
@@ -200,7 +200,7 @@ function FilaTarea({
         <div className="min-w-0 flex-1">
           <p className="text-[14.5px] font-bold leading-snug">
             {campo(tarea, 'titulo', lang)}
-            {tarea.creadaPorAsistente ? <Sparkles size={13} className="ml-1.5 inline text-mineral" /> : null}
+            {tarea.creadaPorAsistente ? <Sparkles size={13} className="ml-1.5 inline text-mineral-texto" /> : null}
           </p>
           {campo(tarea, 'descripcion', lang) ? (
             <p className="mt-1 text-[12.5px] leading-snug text-tinta-sec dark:text-marfil/55">
@@ -214,7 +214,7 @@ function FilaTarea({
             </span>
             <Pildora tono="neutro">{t(`prioridad.${tarea.prioridad}`)}</Pildora>
             {proyecto ? (
-              <button type="button" onClick={() => onProyecto(proyecto.id)} className="min-h-[32px] text-[12px] font-bold text-mineral hover:underline">
+              <button type="button" onClick={() => onProyecto(proyecto.id)} className="min-h-[32px] text-[12px] font-bold text-mineral-texto hover:underline">
                 {campo(proyecto, 'nombre', lang).split('·')[0].trim()}
               </button>
             ) : null}

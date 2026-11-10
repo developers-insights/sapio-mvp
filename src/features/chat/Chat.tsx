@@ -149,7 +149,7 @@ export function Chat() {
           <button
             type="button"
             onClick={() => navigate('/chat')}
-            className="inline-flex min-h-[40px] items-center gap-1.5 text-[13px] font-bold text-mineral"
+            className="inline-flex min-h-[40px] items-center gap-1.5 text-[13px] font-bold text-mineral-texto"
           >
             <ArrowLeft size={15} /> {t('chat.volverLista')}
           </button>

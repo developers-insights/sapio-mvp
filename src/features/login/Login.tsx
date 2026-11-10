@@ -175,7 +175,7 @@ export function Login() {
                       tono: 'info',
                     })
                   }
-                  className="min-h-[44px] text-[13px] font-bold text-mineral underline-offset-4 hover:underline"
+                  className="min-h-[44px] text-[13px] font-bold text-mineral-texto underline-offset-4 hover:underline"
                 >
                   {t('login.olvide')}
                 </button>
@@ -204,7 +204,7 @@ export function Login() {
                       'min-h-[44px] rounded-full border px-3.5 text-[13px] font-bold transition-colors',
                       rolElegido === r
                         ? 'border-mineral bg-mineral text-white'
-                        : 'border-borde bg-white text-tinta-sec hover:border-mineral hover:text-mineral dark:border-[#27425a] dark:bg-noche-800 dark:text-marfil/70',
+                        : 'border-borde bg-white text-tinta-sec hover:border-mineral hover:text-mineral-texto dark:border-[#27425a] dark:bg-noche-800 dark:text-marfil/70',
                     )}
                   >
                     {t(r === 'universidad' ? 'rol.universidad.corto' : `rol.${r}`)}
@@ -217,7 +217,7 @@ export function Login() {
               href={BRAND.whatsapp}
               target="_blank"
               rel="noreferrer noopener"
-              className="mt-7 inline-flex min-h-[44px] items-center gap-2 text-[13px] font-bold text-mineral underline-offset-4 hover:underline"
+              className="mt-7 inline-flex min-h-[44px] items-center gap-2 text-[13px] font-bold text-mineral-texto underline-offset-4 hover:underline"
             >
               <MessageCircle size={15} />
               {t('app.whatsappLink')}
@@ -233,7 +233,7 @@ export function Login() {
                 setTrailer(true)
                 navigate('/propuesta')
               }}
-              className="mt-5 hidden min-h-[44px] items-center gap-2 self-start rounded-xl border border-borde bg-white px-4 text-[13px] font-bold text-noche transition-colors hover:border-mineral hover:text-mineral lg:inline-flex dark:border-[#27425a] dark:bg-noche-800 dark:text-marfil"
+              className="mt-5 hidden min-h-[44px] items-center gap-2 self-start rounded-xl border border-borde bg-white px-4 text-[13px] font-bold text-noche transition-colors hover:border-mineral hover:text-mineral-texto lg:inline-flex dark:border-[#27425a] dark:bg-noche-800 dark:text-marfil"
             >
               <PlayCircle size={16} />
               {t('login.trailer')}

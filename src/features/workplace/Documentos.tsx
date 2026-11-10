@@ -93,7 +93,7 @@ export function Documentos() {
                   onClick={() => setAbierto(d)}
                   className="card-sapio flex w-full min-h-[84px] items-start gap-3 p-3.5 text-left transition-[border-color] hover:border-mineral sm:p-4"
                 >
-                  <span className={cn('grid h-10 w-10 shrink-0 place-items-center rounded-xl', d.restringido ? 'bg-terroso/12 text-terroso' : 'bg-mineral/12 text-mineral')}>
+                  <span className={cn('grid h-10 w-10 shrink-0 place-items-center rounded-xl', d.restringido ? 'bg-terroso/12 text-terroso' : 'bg-mineral/12 text-mineral-texto')}>
                     {d.restringido ? <Lock size={17} /> : <I size={17} />}
                   </span>
                   <span className="min-w-0 flex-1">
@@ -185,7 +185,7 @@ export function Documentos() {
                         <button
                           type="button"
                           onClick={() => { restaurar(v.id); toast({ titulo: t('wp.doc.restaurada', { v: v.etiqueta }), detalle: t('toast.accionMockDetalle'), tono: 'ok' }) }}
-                          className="ml-auto inline-flex min-h-[32px] items-center gap-1 rounded-lg border border-borde px-2 text-[11.5px] font-bold transition-colors hover:border-mineral hover:text-mineral dark:border-[#27425a]"
+                          className="ml-auto inline-flex min-h-[32px] items-center gap-1 rounded-lg border border-borde px-2 text-[11.5px] font-bold transition-colors hover:border-mineral hover:text-mineral-texto dark:border-[#27425a]"
                         >
                           <RotateCcw size={11} />
                           {t('wp.doc.restaurar')}

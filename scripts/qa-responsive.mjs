@@ -7,9 +7,10 @@ import {
   ANCHOS,
   RUTAS_CLAVE,
   abrirNavegador,
-  irA,
+  irDirecto,
   recolectarConsola,
   rolDeRuta,
+  sembrarSesion,
   servirDist,
   sinScrollHorizontal,
 } from './_comun.mjs'
@@ -46,11 +47,10 @@ try {
           viewport: { width: ancho, height: 900 },
           deviceScaleFactor: 1,
         })
+        await sembrarSesion(ctx, rol, { sapio_tema: tema })
         const page = await ctx.newPage()
         const errores = recolectarConsola(page)
-        await page.goto(`${base}/#/login`, { waitUntil: 'load' })
-        await page.evaluate((t) => localStorage.setItem('sapio_tema', t), tema)
-        await irA(page, base, ruta, rol)
+        await irDirecto(page, base, ruta)
         const ok = await sinScrollHorizontal(page)
         const medida = await page.evaluate(() => ({
           scrollWidth: document.documentElement.scrollWidth,

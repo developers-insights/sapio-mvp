@@ -25,15 +25,19 @@ let fallos = 0
 try {
   for (const [ruta, textoEsperado, rol] of PROFUNDAS) {
     const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } })
+    // La sesión se siembra ANTES de que corra cualquier script de la página:
+    // así la primera navegación es realmente directa a la ruta profunda.
+    await ctx.addInitScript((r) => {
+      try {
+        sessionStorage.setItem('sapio_sesion', '1')
+        sessionStorage.setItem('sapio_rol', r)
+        sessionStorage.setItem('welcome_modal_seen', '1')
+      } catch {
+        /* modo privado */
+      }
+    }, rol)
     const page = await ctx.newPage()
     const errores = recolectarConsola(page)
-    // sembramos la sesión antes de entrar directo a la ruta profunda
-    await page.goto(`${base}/index.html`, { waitUntil: 'load' })
-    await page.evaluate((r) => {
-      sessionStorage.setItem('sapio_sesion', '1')
-      sessionStorage.setItem('sapio_rol', r)
-      sessionStorage.setItem('welcome_modal_seen', '1')
-    }, rol)
 
     const resp = await page.goto(`${base}${ruta}`, { waitUntil: 'load' })
     await page.waitForTimeout(600)

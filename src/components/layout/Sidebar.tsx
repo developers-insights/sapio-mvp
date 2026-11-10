@@ -65,7 +65,7 @@ export function Sidebar() {
                       {activo ? (
                         <span className="absolute left-0 top-1/2 h-5 w-[3px] -translate-y-1/2 rounded-r bg-mineral" />
                       ) : null}
-                      <Icono nombre={item.icono} size={17} className={activo ? 'text-mineral' : ''} />
+                      <Icono nombre={item.icono} size={17} className={activo ? 'text-mineral-texto' : ''} />
                       <span className="truncate">{t(item.claveLabel)}</span>
                     </NavLink>
                   </li>
@@ -85,7 +85,7 @@ export function Sidebar() {
               setModo('campus')
               navigate(`/campus/${uni.slug}`)
             }}
-            className="flex w-full min-h-[44px] items-center justify-center gap-2 rounded-xl border border-borde bg-white px-3 text-[13px] font-bold transition-colors hover:border-mineral hover:text-mineral dark:border-[#27425a] dark:bg-noche-800"
+            className="flex w-full min-h-[44px] items-center justify-center gap-2 rounded-xl border border-borde bg-white px-3 text-[13px] font-bold transition-colors hover:border-mineral hover:text-mineral-texto dark:border-[#27425a] dark:bg-noche-800"
           >
             <ExternalLink size={14} />
             {t('nav.verCampusPublico')}

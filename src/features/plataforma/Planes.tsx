@@ -70,16 +70,16 @@ export function Planes() {
 
               <ul className="mt-5 space-y-2">
                 <li className="num flex gap-2 text-[13px]">
-                  <CheckCircle2 size={15} className="mt-[2px] shrink-0 text-mineral" />
+                  <CheckCircle2 size={15} className="mt-[2px] shrink-0 text-mineral-texto" />
                   {t('plat.planes.usuarios', { n: p.usuariosIncluidos.toLocaleString('en-US') })}
                 </li>
                 <li className="num flex gap-2 text-[13px]">
-                  <CheckCircle2 size={15} className="mt-[2px] shrink-0 text-mineral" />
+                  <CheckCircle2 size={15} className="mt-[2px] shrink-0 text-mineral-texto" />
                   {t('plat.planes.limiteIA', { n: p.limiteIA.toLocaleString('en-US') })}
                 </li>
                 {(lang === 'en' ? p.incluyeEn : p.incluyeEs).map((x) => (
                   <li key={x} className="flex gap-2 text-[13px] leading-relaxed">
-                    <CheckCircle2 size={15} className="mt-[3px] shrink-0 text-mineral" />
+                    <CheckCircle2 size={15} className="mt-[3px] shrink-0 text-mineral-texto" />
                     {x}
                   </li>
                 ))}

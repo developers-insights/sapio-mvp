@@ -159,7 +159,7 @@ export function CampusPublico() {
             <button
               type="button"
               onClick={volverAlPanel}
-              className="inline-flex min-h-[36px] items-center gap-1.5 rounded-lg border border-borde bg-white px-2.5 text-[12px] font-bold transition-colors hover:border-mineral hover:text-mineral"
+              className="inline-flex min-h-[36px] items-center gap-1.5 rounded-lg border border-borde bg-white px-2.5 text-[12px] font-bold transition-colors hover:border-mineral hover:text-mineral-texto"
             >
               <ArrowLeft size={13} />
               <span className="hidden sm:inline">{t('campus.barra.volver')}</span>
@@ -170,7 +170,7 @@ export function CampusPublico() {
                 setModo('app')
                 navigate('/propuesta')
               }}
-              className="inline-flex min-h-[36px] items-center gap-1.5 rounded-lg border border-borde bg-white px-2.5 text-[12px] font-bold transition-colors hover:border-mineral hover:text-mineral"
+              className="inline-flex min-h-[36px] items-center gap-1.5 rounded-lg border border-borde bg-white px-2.5 text-[12px] font-bold transition-colors hover:border-mineral hover:text-mineral-texto"
             >
               <FileText size={13} />
               {t('nav.propuesta')}
@@ -328,7 +328,7 @@ export function CampusPublico() {
             <ul className="mt-8 grid gap-3 md:grid-cols-2">
               {PROGRAMAS.map((p) => (
                 <li key={p.id} className="card-sapio p-4 sm:p-5">
-                  <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-mineral">{p.facultad}</p>
+                  <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-mineral-texto">{p.facultad}</p>
                   <h3 className="mt-2 text-[17px] font-black leading-snug">
                     {lang === 'en' ? p.nombreEn : p.nombreEs}
                   </h3>
@@ -359,11 +359,11 @@ export function CampusPublico() {
             <span className="filete mt-4" />
             <ul className="mt-7 space-y-2.5">
               <li className="flex items-center gap-2.5 text-[15px]">
-                <Mail size={16} className="shrink-0 text-mineral" />
+                <Mail size={16} className="shrink-0 text-mineral-texto" />
                 <span className="num">{esElCampusEditado ? campus.emailContacto : `posgrado@${uni.slug}.sapio.example`}</span>
               </li>
               <li className="flex items-center gap-2.5 text-[15px]">
-                <Phone size={16} className="shrink-0 text-mineral" />
+                <Phone size={16} className="shrink-0 text-mineral-texto" />
                 <span className="num">{esElCampusEditado ? campus.telefono : '+1 555 0100'}</span>
               </li>
             </ul>
@@ -376,7 +376,7 @@ export function CampusPublico() {
 
       <footer className="border-t border-borde px-4 py-8 sm:px-6">
         <div className="mx-auto flex max-w-[1180px] flex-wrap items-center gap-3">
-          <Isotipo size={18} className="text-mineral" />
+          <Isotipo size={18} className="text-mineral-texto" />
           <p className="text-[12px] text-tinta-sec">{t('campus.footer')}</p>
           <p className="ml-auto text-[11px] text-tinta-sec/70">{t('app.demoPill')}</p>
         </div>

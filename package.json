@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "qa:responsive": "node scripts/qa-responsive.mjs",
     "qa:i18n": "node scripts/qa-i18n.mjs",
-    "qa:rutas": "node scripts/qa-rutas.mjs"
+    "qa:rutas": "node scripts/qa-rutas.mjs",
+    "qa:porton": "node scripts/porton.mjs",
+    "qa:evidencia": "node scripts/evidencia.mjs"
   },
   "dependencies": {
     "@tiptap/extension-link": "2.11.5",

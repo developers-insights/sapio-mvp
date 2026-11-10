@@ -151,7 +151,7 @@ export function WorkplaceInicio() {
               {t('wp.proximosEventos')}
             </h3>
             {!esColab ? (
-              <button type="button" onClick={() => navigate('/workplace/calendario')} className="min-h-[36px] shrink-0 text-[12px] font-bold text-mineral hover:underline">
+              <button type="button" onClick={() => navigate('/workplace/calendario')} className="min-h-[36px] shrink-0 text-[12px] font-bold text-mineral-texto hover:underline">
                 {t('wp.verTodo')}
               </button>
             ) : null}
@@ -189,7 +189,7 @@ export function WorkplaceInicio() {
             <h3 className="min-w-0 truncate text-sm font-black uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/60">
               {esProf ? t('wp.entregasPendientes') : t('wp.tareasPorVencer')}
             </h3>
-            <button type="button" onClick={() => navigate('/workplace/tareas')} className="min-h-[36px] shrink-0 text-[12px] font-bold text-mineral hover:underline">
+            <button type="button" onClick={() => navigate('/workplace/tareas')} className="min-h-[36px] shrink-0 text-[12px] font-bold text-mineral-texto hover:underline">
               {t('wp.verTodo')}
             </button>
           </div>
@@ -236,7 +236,7 @@ export function WorkplaceInicio() {
                     onClick={() => navigate(`/mesa/${m.id}`)}
                     className="flex w-full min-h-[44px] items-center gap-3 rounded-xl border border-borde p-3 text-left transition-colors hover:border-mineral dark:border-[#27425a]"
                   >
-                    <Table2 size={16} className="shrink-0 text-mineral" />
+                    <Table2 size={16} className="shrink-0 text-mineral-texto" />
                     <span className="min-w-0 flex-1">
                       <span className="block truncate text-[14px] font-bold leading-snug">{campo(m, 'titulo', lang)}</span>
                       <span className="flex -space-x-1.5 pt-1.5">
@@ -264,7 +264,7 @@ export function WorkplaceInicio() {
             <h3 className="min-w-0 truncate text-sm font-black uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/60">
               {t('wp.mensajesSinLeer')}
             </h3>
-            <button type="button" onClick={() => navigate('/chat')} className="min-h-[36px] shrink-0 text-[12px] font-bold text-mineral hover:underline">
+            <button type="button" onClick={() => navigate('/chat')} className="min-h-[36px] shrink-0 text-[12px] font-bold text-mineral-texto hover:underline">
               {t('wp.verTodo')}
             </button>
           </div>
@@ -279,7 +279,7 @@ export function WorkplaceInicio() {
                     onClick={() => navigate(`/chat/${c.id}`)}
                     className="flex w-full min-h-[44px] items-center gap-3 rounded-xl border border-borde p-3 text-left transition-colors hover:border-mineral dark:border-[#27425a]"
                   >
-                    <MessagesSquare size={16} className="shrink-0 text-mineral" />
+                    <MessagesSquare size={16} className="shrink-0 text-mineral-texto" />
                     <span className="min-w-0 flex-1">
                       <span className="block truncate text-[14px] font-bold leading-snug">{c.nombre}</span>
                       <span className="block truncate text-[12px] text-tinta-sec dark:text-marfil/55">

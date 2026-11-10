@@ -72,7 +72,7 @@ export function Asistente() {
           {/* Resumen de documentos */}
           <section className="card-sapio p-4 sm:p-5">
             <h2 className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/60">
-              <FileText size={14} className="text-mineral" /> {t('asist.vista.resumir')}
+              <FileText size={14} className="text-mineral-texto" /> {t('asist.vista.resumir')}
             </h2>
             <p className="mt-1.5 text-[13px] text-tinta-sec dark:text-marfil/55">{t('asist.vista.resumirDet')}</p>
             <div className="mt-3 flex flex-col gap-2.5 sm:flex-row sm:items-end">
@@ -105,7 +105,7 @@ export function Asistente() {
           {/* Redacción y corrección */}
           <section className="card-sapio p-4 sm:p-5">
             <h2 className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/60">
-              <Wand2 size={14} className="text-mineral" /> {t('asist.vista.redaccion')}
+              <Wand2 size={14} className="text-mineral-texto" /> {t('asist.vista.redaccion')}
             </h2>
             <p className="mt-1.5 text-[13px] text-tinta-sec dark:text-marfil/55">{t('asist.vista.redaccionDet')}</p>
             <div className="mt-3 grid gap-3 md:grid-cols-2">
@@ -130,7 +130,7 @@ export function Asistente() {
           {/* Sugerir tareas */}
           <section className="card-sapio p-4 sm:p-5">
             <h2 className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/60">
-              <ListChecks size={14} className="text-mineral" /> {t('asist.vista.tareas')}
+              <ListChecks size={14} className="text-mineral-texto" /> {t('asist.vista.tareas')}
             </h2>
             <p className="mt-1.5 text-[13px] text-tinta-sec dark:text-marfil/55">{t('asist.vista.tareasDet')}</p>
             <Textarea
@@ -172,7 +172,7 @@ export function Asistente() {
                     key={clave}
                     type="button"
                     onClick={() => preguntar(t(clave))}
-                    className="min-h-[34px] shrink-0 whitespace-nowrap rounded-full border border-borde bg-white px-3 text-[11.5px] font-bold text-tinta-sec transition-colors hover:border-mineral hover:text-mineral dark:border-[#27425a] dark:bg-noche-700 dark:text-marfil/70"
+                    className="min-h-[34px] shrink-0 whitespace-nowrap rounded-full border border-borde bg-white px-3 text-[11.5px] font-bold text-tinta-sec transition-colors hover:border-mineral hover:text-mineral-texto dark:border-[#27425a] dark:bg-noche-700 dark:text-marfil/70"
                   >
                     {t(clave)}
                   </button>
