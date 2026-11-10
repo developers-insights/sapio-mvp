@@ -1,5 +1,5 @@
 import type { Persona, Role } from './tipos'
-import { UNIVERSIDADES } from './universidades'
+import { UNIVERSIDADES, UNI_POR_ID } from './universidades'
 
 /** Paleta de avatares: solo colores de marca (nunca fotos de personas). */
 export const COLORES_AVATAR = ['#25465C', '#527D79', '#101D2B', '#8A6B38', '#456A66', '#1D3245']
@@ -159,6 +159,15 @@ const NOMBRES_COL = [
 
 const activas = UNIVERSIDADES.filter((u) => u.estado !== 'suspendida')
 
+/**
+ * Northwood State es el campus que se muestra en la demo (es el tenant de la
+ * administradora), así que concentra una parte del plantel: 2 de cada 5.
+ */
+function uniDe(i: number) {
+  if (i % 5 === 0 || i % 5 === 2) return UNI_POR_ID['u-northwood']
+  return activas[i % activas.length]
+}
+
 function correo(nombre: string, slug: string) {
   const limpio = nombre
     .replace(/^(Dr\.|Dra\.|Ing\.|Lic\.|Mg\.)\s*/i, '')
@@ -173,7 +182,7 @@ function correo(nombre: string, slug: string) {
 
 const GENERADAS: Persona[] = [
   ...NOMBRES_PROF.map((nombre, i) => {
-    const uni = activas[i % activas.length]
+    const uni = uniDe(i)
     const dep = DEPARTAMENTOS[i % DEPARTAMENTOS.length]
     return p(
       `p-prof-${i + 1}`,
@@ -188,7 +197,7 @@ const GENERADAS: Persona[] = [
     )
   }),
   ...NOMBRES_EST.map((nombre, i) => {
-    const uni = activas[(i + 2) % activas.length]
+    const uni = uniDe(i + 1)
     const dep = DEPARTAMENTOS[(i + 1) % DEPARTAMENTOS.length]
     return p(
       `p-est-${i + 1}`,
@@ -203,7 +212,7 @@ const GENERADAS: Persona[] = [
     )
   }),
   ...NOMBRES_COL.map((nombre, i) => {
-    const uni = activas[(i + 1) % activas.length]
+    const uni = uniDe(i + 2)
     return p(
       `p-col-${i + 1}`,
       nombre,

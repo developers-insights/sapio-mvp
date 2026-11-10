@@ -27,7 +27,7 @@ export function AsistenteFlotante() {
   const esMobile = useEsMobile()
   const offsetInferior = useOffsetInferior()
   const { mensajes, pensando, preguntar, uso } = useConversacion()
-  const finRef = useRef<HTMLDivElement>(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
   const entradaRef = useRef<HTMLInputElement>(null)
 
   // Offset real: bottom-nav + barra de formato + botón de comentarios de la mesa.
@@ -36,8 +36,8 @@ export function AsistenteFlotante() {
   const abajo = offsetInferior + extra
 
   useEffect(() => {
-    if (!abierto) return
-    finRef.current?.scrollIntoView({ block: 'end' })
+    if (!abierto || !scrollRef.current) return
+    scrollRef.current.scrollTop = scrollRef.current.scrollHeight
   }, [mensajes, pensando, abierto])
 
   if (trailer) return null
@@ -101,7 +101,7 @@ export function AsistenteFlotante() {
             </button>
           </header>
 
-          <div className="min-h-0 flex-1 overflow-y-auto px-3.5 py-3">
+          <div ref={scrollRef} className="min-h-0 flex-1 overflow-y-auto px-3.5 py-3">
             <Burbujas mensajes={mensajes} pensando={pensando} />
             <div className="mt-3">
               <MedidorUso {...uso} />
@@ -112,7 +112,6 @@ export function AsistenteFlotante() {
               hoy={t('asist.dev.modeloHoy')}
               alDesarrollar={t('asist.dev.modeloDesp')}
             />
-            <div ref={finRef} />
           </div>
 
           <div className="shrink-0 border-t border-borde px-3 pb-3 pt-2.5 dark:border-[#27425a]">

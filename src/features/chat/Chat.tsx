@@ -31,7 +31,7 @@ export function Chat() {
   const [enVivo, setEnVivo] = useState<Mensaje[]>([])
   const [busqueda, setBusqueda] = useState('')
   const entradaRef = useRef<HTMLInputElement>(null)
-  const finRef = useRef<HTMLDivElement>(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
   const temporizadores = useRef<number[]>([])
 
   const mios = useMemo(() => CANALES.filter((c) => c.miembros.includes(yo.id)), [yo.id])
@@ -68,9 +68,10 @@ export function Chat() {
     return filtrados.sort((a, b) => a.fecha.getTime() - b.fecha.getTime())
   }, [canal, enVivo, enviados, busqueda, lang])
 
+  // Bajamos el scroll DENTRO del contenedor: scrollIntoView movería la página.
   useEffect(() => {
-    if (!canal) return
-    finRef.current?.scrollIntoView({ block: 'end' })
+    if (!canal || !scrollRef.current) return
+    scrollRef.current.scrollTop = scrollRef.current.scrollHeight
   }, [mensajes.length, canal])
 
   function enviar(texto: string) {
@@ -188,7 +189,11 @@ export function Chat() {
         </p>
       ) : null}
 
-      <div className="card-sapio min-h-0 flex-1 overflow-y-auto p-3.5 sm:p-4" style={{ maxHeight: esMobile ? '52vh' : '58vh' }}>
+      <div
+        ref={scrollRef}
+        className="card-sapio min-h-0 flex-1 overflow-y-auto p-3.5 sm:p-4"
+        style={{ maxHeight: esMobile ? '52vh' : '58vh' }}
+      >
         {!mensajes.length ? (
           <p className="py-10 text-center text-sm text-tinta-sec dark:text-marfil/55">{t('chat.sinMensajes')}</p>
         ) : (
@@ -237,12 +242,13 @@ export function Chat() {
             })}
           </ul>
         )}
-        <div ref={finRef} />
       </div>
 
       <form
         className={cn(
           'mt-3 flex items-center gap-2',
+          // En desktop dejamos aire a la derecha para no quedar bajo el asistente flotante.
+          !esMobile && 'lg:pr-[68px]',
           esMobile && 'fixed inset-x-0 z-[45] border-t border-borde bg-marfil px-3 py-2.5 dark:border-[#27425a] dark:bg-noche',
         )}
         style={esMobile ? { bottom: offsetInferior } : undefined}

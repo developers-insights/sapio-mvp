@@ -18,7 +18,14 @@ import fs from 'node:fs'
 const soloRuta = process.argv.find((a) => a.startsWith('--ruta='))?.split('=')[1]
 const temas = process.argv.includes('--un-tema') ? ['light'] : ['light', 'dark']
 
-const rutas = soloRuta ? RUTAS_CLAVE.filter(([r]) => r.includes(soloRuta)) : RUTAS_CLAVE
+const rutas = soloRuta
+  ? RUTAS_CLAVE.filter(([r, nombre]) => r.includes(soloRuta) || nombre.includes(soloRuta))
+  : RUTAS_CLAVE
+
+if (!rutas.length) {
+  console.error(`\u2717 El filtro --ruta=${soloRuta} no coincide con ninguna vista: no hay nada que medir.`)
+  process.exit(1)
+}
 
 if (!fs.existsSync('dist/index.html')) {
   console.error('✗ falta dist/. Corré `npm run build` antes del QA.')

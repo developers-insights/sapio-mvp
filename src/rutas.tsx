@@ -12,6 +12,11 @@ import { Mesas } from '@/features/mesa/Mesas'
 import { MesaRedonda } from '@/features/mesa/MesaRedonda'
 import { Chat } from '@/features/chat/Chat'
 import { Asistente } from '@/features/asistente/Asistente'
+import { UniversidadPanel } from '@/features/universidad/Panel'
+import { Miembros } from '@/features/universidad/Miembros'
+import { Invitaciones } from '@/features/universidad/Invitaciones'
+import { Invitacion } from '@/features/universidad/Invitacion'
+import { UniversidadRoles } from '@/features/universidad/Roles'
 
 function Esq({ k, t }: { k: string; t: string }) {
   return <Esqueleto kicker={k} titulo={t} />
@@ -23,7 +28,7 @@ export function Rutas() {
       <Route path="/login" element={<Login />} />
       <Route element={<Shell />}>
         <Route path="/propuesta" element={<Esq k="PROPUESTA COMERCIAL" t="Propuesta" />} />
-        <Route path="/invitacion/:token" element={<Esq k="INVITACIÓN" t="Activar cuenta" />} />
+        <Route path="/invitacion/:token" element={<Invitacion />} />
 
         <Route path="/plataforma/panel" element={<Esq k="PLATAFORMA" t="Panel" />} />
         <Route path="/plataforma/universidades" element={<Esq k="PLATAFORMA" t="Universidades" />} />
@@ -34,11 +39,11 @@ export function Rutas() {
         <Route path="/plataforma/seguridad" element={<Esq k="SEGURIDAD" t="Seguridad" />} />
         <Route path="/plataforma/marca" element={<Esq k="MARCA" t="Sistema de diseño" />} />
 
-        <Route path="/universidad/panel" element={<Esq k="CAMPUS" t="Panel" />} />
-        <Route path="/universidad/miembros" element={<Esq k="CAMPUS" t="Miembros" />} />
-        <Route path="/universidad/invitaciones" element={<Esq k="CAMPUS" t="Invitaciones" />} />
+        <Route path="/universidad/panel" element={<UniversidadPanel />} />
+        <Route path="/universidad/miembros" element={<Miembros />} />
+        <Route path="/universidad/invitaciones" element={<Invitaciones />} />
         <Route path="/universidad/campus-editor" element={<Esq k="CAMPUS" t="Editor del campus" />} />
-        <Route path="/universidad/roles" element={<Esq k="CAMPUS" t="Roles" />} />
+        <Route path="/universidad/roles" element={<UniversidadRoles />} />
         <Route path="/universidad/suscripcion" element={<Esq k="FACTURACIÓN" t="Suscripción" />} />
 
         <Route path="/workplace" element={<WorkplaceInicio />} />
