@@ -43,22 +43,36 @@ try {
     for (const [ruta, nombre] of rutas) {
       const rol = rolDeRuta(ruta)
       for (const ancho of ANCHOS) {
-        const ctx = await browser.newContext({
-          viewport: { width: ancho, height: 900 },
-          deviceScaleFactor: 1,
-        })
-        await sembrarSesion(ctx, rol, { sapio_tema: tema })
-        const page = await ctx.newPage()
-        const errores = recolectarConsola(page)
-        await irDirecto(page, base, ruta)
-        const ok = await sinScrollHorizontal(page)
-        const medida = await page.evaluate(() => ({
-          scrollWidth: document.documentElement.scrollWidth,
-          clientWidth: document.documentElement.clientWidth,
-        }))
-        const erroresReales = errores.filter(
-          (e) => !/favicon|manifest|Download the React DevTools|fonts.googleapis/i.test(e),
-        )
+        // `serve` a veces corta un socket bajo carga: eso es ruido del arnés,
+        // no un error de la app. Si el ÚNICO problema es de transporte,
+        // reintentamos la medición una vez antes de darla por fallada.
+        let medida = null
+        let erroresReales = []
+        let ok = false
+        let reintentos = 0
+        for (let intento = 0; intento < 2; intento++) {
+          const ctx = await browser.newContext({
+            viewport: { width: ancho, height: 900 },
+            deviceScaleFactor: 1,
+          })
+          await sembrarSesion(ctx, rol, { sapio_tema: tema })
+          const page = await ctx.newPage()
+          const errores = recolectarConsola(page)
+          await irDirecto(page, base, ruta)
+          ok = await sinScrollHorizontal(page)
+          medida = await page.evaluate(() => ({
+            scrollWidth: document.documentElement.scrollWidth,
+            clientWidth: document.documentElement.clientWidth,
+          }))
+          erroresReales = errores.filter(
+            (e) => !/favicon|manifest|Download the React DevTools|fonts.googleapis/i.test(e),
+          )
+          await ctx.close()
+          const soloTransporte =
+            erroresReales.length > 0 && erroresReales.every((e) => /net::ERR_/.test(e))
+          if (!soloTransporte) break
+          reintentos++
+        }
         if (!ok || erroresReales.length) fallos++
         filas.push({
           tema,
@@ -67,12 +81,13 @@ try {
           ok,
           ...medida,
           errores: erroresReales,
+          reintentos,
         })
         console.log(
           `${ok && !erroresReales.length ? '✓' : '✗'} ${tema.padEnd(5)} ${nombre.padEnd(22)} ${String(ancho).padStart(4)}px  scrollWidth=${medida.scrollWidth} clientWidth=${medida.clientWidth} → ${ok}` +
+            (reintentos ? `  (reintentos por socket: ${reintentos})` : '') +
             (erroresReales.length ? `\n    consola: ${erroresReales.join(' | ')}` : ''),
         )
-        await ctx.close()
       }
     }
   }
