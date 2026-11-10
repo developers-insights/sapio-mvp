@@ -8,6 +8,8 @@ import { Tareas } from '@/features/workplace/Tareas'
 import { Documentos } from '@/features/workplace/Documentos'
 import { Proyectos, ProyectoDetalle } from '@/features/workplace/Proyectos'
 import { Notificaciones } from '@/features/workplace/Notificaciones'
+import { Mesas } from '@/features/mesa/Mesas'
+import { MesaRedonda } from '@/features/mesa/MesaRedonda'
 
 function Esq({ k, t }: { k: string; t: string }) {
   return <Esqueleto kicker={k} titulo={t} />
@@ -43,10 +45,10 @@ export function Rutas() {
         <Route path="/workplace/documentos" element={<Documentos />} />
         <Route path="/workplace/proyectos" element={<Proyectos />} />
         <Route path="/workplace/proyectos/:id" element={<ProyectoDetalle />} />
-        <Route path="/workplace/mesas" element={<Esq k="MI ESPACIO" t="Mesas redondas" />} />
+        <Route path="/workplace/mesas" element={<Mesas />} />
         <Route path="/workplace/asistente" element={<Esq k="MI ESPACIO" t="Asistente" />} />
         <Route path="/workplace/notificaciones" element={<Notificaciones />} />
-        <Route path="/mesa/:id" element={<Esq k="MESA REDONDA" t="Documento compartido" />} />
+        <Route path="/mesa/:id" element={<MesaRedonda />} />
         <Route path="/chat" element={<Esq k="MI ESPACIO" t="Chat" />} />
         <Route path="/chat/:canal" element={<Esq k="MI ESPACIO" t="Chat" />} />
 
