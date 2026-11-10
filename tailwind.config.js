@@ -4,6 +4,11 @@ export default {
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {
+      // Permitimos cualquier modificador de opacidad (text-marfil/78, bg-noche/92…):
+      // la escala por defecto solo acepta múltiplos de 5 y silenciaba las clases.
+      opacity: Object.fromEntries(
+        Array.from({ length: 101 }, (_, i) => [String(i), String(i / 100)]),
+      ),
       colors: {
         noche: { DEFAULT: '#101D2B', 700: '#1D3245', 800: '#172839', 900: '#101D2B' },
         marfil: { DEFAULT: '#F6F2E9', 200: '#EFE9DB', 300: '#E8E1D3' },

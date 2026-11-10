@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { Bell, Menu, Search, Sparkles, Sun, Moon } from 'lucide-react'
 import { useUI } from '@/store/ui'
 import { useT } from '@/i18n'
-import { Firma, Isotipo } from '@/assets/brand/Isotipo'
+import { Firma } from '@/assets/brand/Isotipo'
 import { Pildora, Avatar } from '@/components/ui/Piezas'
 import { persona, USUARIO_POR_ROL } from '@/data/personas'
 import { NOTIFICACIONES } from '@/data/gestion'
@@ -61,7 +61,7 @@ export function Topbar() {
           </kbd>
         </button>
 
-        <div className="ml-auto flex items-center gap-1">
+        <div className="ml-auto flex items-center gap-0.5 sm:gap-1">
           <Pildora tono="neutro" className="hidden sm:inline-flex">
             {t('app.demoPill')}
           </Pildora>
@@ -119,9 +119,6 @@ export function Topbar() {
 
           <span className="ml-1 hidden sm:inline-flex">
             <Avatar personaId={yo.id} size={32} presencia />
-          </span>
-          <span className="ml-1 inline-flex sm:hidden">
-            <Isotipo size={18} className="text-champan" />
           </span>
         </div>
       </div>

@@ -2,6 +2,12 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import { Shell } from '@/components/layout/Shell'
 import { Login } from '@/features/login/Login'
 import { Esqueleto } from '@/components/layout/Esqueleto'
+import { WorkplaceInicio } from '@/features/workplace/Inicio'
+import { Calendario } from '@/features/workplace/Calendario'
+import { Tareas } from '@/features/workplace/Tareas'
+import { Documentos } from '@/features/workplace/Documentos'
+import { Proyectos, ProyectoDetalle } from '@/features/workplace/Proyectos'
+import { Notificaciones } from '@/features/workplace/Notificaciones'
 
 function Esq({ k, t }: { k: string; t: string }) {
   return <Esqueleto kicker={k} titulo={t} />
@@ -31,15 +37,15 @@ export function Rutas() {
         <Route path="/universidad/roles" element={<Esq k="CAMPUS" t="Roles" />} />
         <Route path="/universidad/suscripcion" element={<Esq k="FACTURACIÓN" t="Suscripción" />} />
 
-        <Route path="/workplace" element={<Esq k="MI ESPACIO" t="Inicio" />} />
-        <Route path="/workplace/calendario" element={<Esq k="MI ESPACIO" t="Calendario" />} />
-        <Route path="/workplace/tareas" element={<Esq k="MI ESPACIO" t="Tareas" />} />
-        <Route path="/workplace/documentos" element={<Esq k="MI ESPACIO" t="Documentos" />} />
-        <Route path="/workplace/proyectos" element={<Esq k="MI ESPACIO" t="Proyectos" />} />
-        <Route path="/workplace/proyectos/:id" element={<Esq k="MI ESPACIO" t="Proyecto" />} />
+        <Route path="/workplace" element={<WorkplaceInicio />} />
+        <Route path="/workplace/calendario" element={<Calendario />} />
+        <Route path="/workplace/tareas" element={<Tareas />} />
+        <Route path="/workplace/documentos" element={<Documentos />} />
+        <Route path="/workplace/proyectos" element={<Proyectos />} />
+        <Route path="/workplace/proyectos/:id" element={<ProyectoDetalle />} />
         <Route path="/workplace/mesas" element={<Esq k="MI ESPACIO" t="Mesas redondas" />} />
         <Route path="/workplace/asistente" element={<Esq k="MI ESPACIO" t="Asistente" />} />
-        <Route path="/workplace/notificaciones" element={<Esq k="MI ESPACIO" t="Notificaciones" />} />
+        <Route path="/workplace/notificaciones" element={<Notificaciones />} />
         <Route path="/mesa/:id" element={<Esq k="MESA REDONDA" t="Documento compartido" />} />
         <Route path="/chat" element={<Esq k="MI ESPACIO" t="Chat" />} />
         <Route path="/chat/:canal" element={<Esq k="MI ESPACIO" t="Chat" />} />

@@ -72,12 +72,13 @@ export function Login() {
           </div>
 
           <div className="relative mt-auto max-w-2xl">
-            <Pildora tono="champan" className="animate-pulso border-champan/50 bg-champan/15">
+            <span className="inline-flex animate-pulso items-center gap-2 rounded-full border border-champan/55 bg-champan/12 px-3 py-1.5 text-[11px] font-bold uppercase leading-none tracking-[0.14em] text-marfil">
+              <span className="h-1.5 w-1.5 rounded-full bg-champan" aria-hidden="true" />
               {t('app.demoPreview')}
-            </Pildora>
+            </span>
 
             <h1 className="mt-7 font-black leading-[0.98] text-marfil" style={{ fontSize: 'clamp(44px,4.6vw,64px)' }}>
-              <span className="block">{t('login.headline1')}</span>
+              <span className="block text-marfil/55">{t('login.headline1')}</span>
               <span className="block text-marfil">{t('login.headline2')}</span>
             </h1>
             <span className="filete mt-5" />
