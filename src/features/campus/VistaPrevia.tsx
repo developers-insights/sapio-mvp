@@ -1,5 +1,5 @@
 import { useDatos } from '@/store/datos'
-import { useT } from '@/i18n'
+import { dato, useT } from '@/i18n'
 import { Isotipo } from '@/assets/brand/Isotipo'
 import { GRANO_SVG, PLACEHOLDERS } from '@/data/assets'
 import { PROGRAMAS } from '@/data/campus'
@@ -75,7 +75,7 @@ export function VistaPreviaCampus() {
                     style={{ background: PLACEHOLDERS.campusFacultades.capas[i % 3] }}
                     aria-hidden="true"
                   />
-                  <span className="mt-1.5 block text-[11.5px] font-bold leading-snug">{f}</span>
+                  <span className="mt-1.5 block text-[11.5px] font-bold leading-snug">{dato(f, lang)}</span>
                 </li>
               ))}
             </ul>

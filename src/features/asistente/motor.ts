@@ -1,6 +1,6 @@
 import type { Lang } from '@/i18n/tipos'
 import type { Role, Tarea } from '@/data/tipos'
-import { tr } from '@/i18n'
+import { dato, tr } from '@/i18n'
 import { campo } from '@/lib/texto'
 import { COMENTARIOS_MESA } from '@/data/mesa'
 import { DOCUMENTOS, MESA_TESIS, PROYECTOS } from '@/data/proyecto'
@@ -166,8 +166,8 @@ export function responder(pregunta: string, rol: Role, lang: Lang): Respuesta {
     const p = SOLICITUDES_PROFESOR.filter((s) => s.estado === 'pendiente')
     return {
       texto: es
-        ? `Hay ${p.length} profesores esperando aprobación en Northwood State:\n${p.map((x) => `· ${x.nombre} — ${x.facultad} — vence en ${x.venceEnDias} días`).join('\n')}\nSe aprueban o rechazan desde Invitaciones, pestaña de profesores.`
-        : `${p.length} faculty members are awaiting approval at Northwood State:\n${p.map((x) => `· ${x.nombre} — ${x.facultad} — expires in ${x.venceEnDias} days`).join('\n')}\nThey are approved or rejected from Invitations, faculty tab.`,
+        ? `Hay ${p.length} profesores esperando aprobación en Northwood State:\n${p.map((x) => `· ${x.nombre} — ${dato(x.facultad, lang)} — vence en ${x.venceEnDias} días`).join('\n')}\nSe aprueban o rechazan desde Invitaciones, pestaña de profesores.`
+        : `${p.length} faculty members are awaiting approval at Northwood State:\n${p.map((x) => `· ${x.nombre} — ${dato(x.facultad, lang)} — expires in ${x.venceEnDias} days`).join('\n')}\nThey are approved or rejected from Invitations, faculty tab.`,
     }
   }
   if (tiene('suscripcion del campus', 'campus subscription', 'como esta la suscripcion')) {

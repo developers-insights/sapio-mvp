@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { FileSpreadsheet, FileText, Database, Folder, History, Lock, Table2, Upload, RotateCcw } from 'lucide-react'
 import { useUI } from '@/store/ui'
 import { useDatos } from '@/store/datos'
-import { useT } from '@/i18n'
+import { dato, useT } from '@/i18n'
 import { kickerRol } from '@/lib/rol'
 import { campo } from '@/lib/texto'
 import { EncabezadoSeccion, PreviewBanner, Pildora, Avatar, DevNotice, EstadoVacio } from '@/components/ui/Piezas'
@@ -75,7 +75,7 @@ export function Documentos() {
             )}
           >
             <Folder size={14} />
-            {c === 'todas' ? t('app.todas') : c}
+            {c === 'todas' ? t('app.todas') : dato(c, lang)}
           </button>
         ))}
       </div>
@@ -99,7 +99,7 @@ export function Documentos() {
                   <span className="min-w-0 flex-1">
                     <span className="block text-[14.5px] font-bold leading-snug">{campo(d, 'nombre', lang)}</span>
                     <span className="mt-1 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[12px] text-tinta-sec dark:text-marfil/50">
-                      <span>{d.carpeta}</span>
+                      <span>{dato(d.carpeta, lang)}</span>
                       <span>·</span>
                       <span className="num">{d.tamano}</span>
                       <span>·</span>

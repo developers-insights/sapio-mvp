@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, Building2, Database, HardDrive, Plus, Settings2, ShieldCheck, TerminalSquare } from 'lucide-react'
 import { useUI } from '@/store/ui'
-import { useT } from '@/i18n'
+import { dato, useT } from '@/i18n'
 import { kickerRol } from '@/lib/rol'
 import {
   AvatarUni, DevNotice, EncabezadoSeccion, EstadoBadge, EstadoVacio, Pildora, PreviewBanner, Tabla, Td, Th,
@@ -130,7 +130,7 @@ export function Universidades() {
                     <div className="min-w-0">
                       <p className="truncate text-[13.5px] font-bold">{u.nombre}</p>
                       <p className="truncate text-[11.5px] text-tinta-sec dark:text-marfil/50">
-                        {u.ciudad}, {u.pais}
+                        {u.ciudad}, {dato(u.pais, lang)}
                       </p>
                     </div>
                   </div>
@@ -348,7 +348,7 @@ export function UniversidadDetalle() {
       <EncabezadoSeccion
         kicker={kickerRol(rol, lang)}
         titulo={u.nombre}
-        bajada={`${u.ciudad}, ${u.pais} · ${u.slug}.sapio.example`}
+        bajada={`${u.ciudad}, ${dato(u.pais, lang)} · ${u.slug}.sapio.example`}
         acciones={<EstadoBadge estado={u.estado} />}
       />
 
@@ -378,7 +378,7 @@ export function UniversidadDetalle() {
           <ul className="mt-4 flex flex-wrap gap-2">
             {u.facultades.map((f) => (
               <li key={f}>
-                <Pildora tono="neutro">{f}</Pildora>
+                <Pildora tono="neutro">{dato(f, lang)}</Pildora>
               </li>
             ))}
           </ul>

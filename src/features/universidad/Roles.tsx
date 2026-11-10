@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { History, UserCog } from 'lucide-react'
 import { useUI } from '@/store/ui'
-import { useT } from '@/i18n'
+import { dato, useT } from '@/i18n'
 import { kickerRol } from '@/lib/rol'
 import { Avatar, EncabezadoSeccion, Pildora, PreviewBanner } from '@/components/ui/Piezas'
 import { Boton } from '@/components/ui/Boton'
@@ -49,7 +49,7 @@ export function UniversidadRoles() {
                 <Avatar personaId={m.id} size={34} presencia />
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-[13.5px] font-black">{m.nombre}</p>
-                  <p className="truncate text-[11.5px] text-tinta-sec dark:text-marfil/50">{m.departamento}</p>
+                  <p className="truncate text-[11.5px] text-tinta-sec dark:text-marfil/50">{dato(m.departamento, lang)}</p>
                 </div>
                 <Select
                   value={valor}

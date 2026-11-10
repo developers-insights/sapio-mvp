@@ -135,6 +135,13 @@ const PRINCIPALES: Persona[] = [
 
 // ── Plantel adicional: profesores por departamento, estudiantes y colaboradores
 const DEPARTAMENTOS = ['Derecho', 'Administración', 'Finanzas', 'Ingeniería']
+/** El cargo en inglés no puede llevar el departamento en castellano. */
+const DEPARTAMENTO_EN: Record<string, string> = {
+  Derecho: 'Law',
+  Administración: 'Administration',
+  Finanzas: 'Finance',
+  Ingeniería: 'Engineering',
+}
 
 const NOMBRES_PROF = [
   'Dra. Helen Vasquez', 'Dr. Peter Kowalski', 'Dra. Camila Duarte', 'Dr. Owen Brightwater',
@@ -190,7 +197,7 @@ const GENERADAS: Persona[] = [
       correo(nombre, uni.slug),
       'profesor',
       `Profesor/a titular · ${dep}`,
-      `Faculty member · ${dep}`,
+      `Faculty member · ${DEPARTAMENTO_EN[dep] ?? dep}`,
       uni.id,
       dep,
       i % 5 === 0 ? 'conectado' : i % 3 === 0 ? 'ausente' : 'desconectado',
@@ -205,7 +212,7 @@ const GENERADAS: Persona[] = [
       correo(nombre, uni.slug),
       'estudiante',
       `Estudiante de posgrado · ${dep}`,
-      `Graduate student · ${dep}`,
+      `Graduate student · ${DEPARTAMENTO_EN[dep] ?? dep}`,
       uni.id,
       dep,
       i % 4 === 0 ? 'conectado' : 'desconectado',

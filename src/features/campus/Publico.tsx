@@ -6,7 +6,7 @@ import Lenis from 'lenis'
 import { ArrowLeft, ChevronDown, FileText, Mail, Phone } from 'lucide-react'
 import { useUI } from '@/store/ui'
 import { useDatos } from '@/store/datos'
-import { useT } from '@/i18n'
+import { dato, useT } from '@/i18n'
 import { Anillos, Isotipo } from '@/assets/brand/Isotipo'
 import { Pildora } from '@/components/ui/Piezas'
 import { CtaWhatsapp } from '@/components/layout/CtaWhatsapp'
@@ -50,8 +50,8 @@ export function CampusPublico() {
       ? campus.textoInstitucionalEn
       : campus.textoInstitucionalEs
     : lang === 'en'
-      ? `${uni.nombre} trains researchers across ${uni.facultades.length} faculties in ${uni.ciudad}, ${uni.pais}.`
-      : `${uni.nombre} forma investigadores en ${uni.facultades.length} facultades en ${uni.ciudad}, ${uni.pais}.`
+      ? `${uni.nombre} trains researchers across ${uni.facultades.length} faculties in ${uni.ciudad}, ${dato(uni.pais, lang)}.`
+      : `${uni.nombre} forma investigadores en ${uni.facultades.length} facultades en ${uni.ciudad}, ${dato(uni.pais, lang)}.`
   const secciones = esElCampusEditado
     ? campus.secciones
     : { institucional: true, facultades: true, programas: true, contacto: true }
@@ -218,7 +218,7 @@ export function CampusPublico() {
             <span aria-hidden="true">·</span>
             <span className="num">{t('campus.programasN', { n: PROGRAMAS.length })}</span>
             <span aria-hidden="true">·</span>
-            <span>{uni.ciudad}, {uni.pais}</span>
+            <span>{uni.ciudad}, {dato(uni.pais, lang)}</span>
           </div>
           <p className="mt-10 inline-flex items-center gap-2 text-[12px] text-marfil/50">
             <ChevronDown size={14} className="animate-pulso" />
@@ -305,7 +305,7 @@ export function CampusPublico() {
                     <span className="num block text-[11px] font-bold tracking-[0.1em] text-champan-700">
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                    <span className="mt-1.5 block text-[16px] font-black leading-snug">{f}</span>
+                    <span className="mt-1.5 block text-[16px] font-black leading-snug">{dato(f, lang)}</span>
                   </span>
                 </li>
               ))}
@@ -328,7 +328,7 @@ export function CampusPublico() {
             <ul className="mt-8 grid gap-3 md:grid-cols-2">
               {PROGRAMAS.map((p) => (
                 <li key={p.id} className="card-sapio p-4 sm:p-5">
-                  <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-mineral-texto">{p.facultad}</p>
+                  <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-mineral-texto">{dato(p.facultad, lang)}</p>
                   <h3 className="mt-2 text-[17px] font-black leading-snug">
                     {lang === 'en' ? p.nombreEn : p.nombreEs}
                   </h3>

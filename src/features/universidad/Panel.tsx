@@ -4,7 +4,7 @@ import { BarChart, Bar, ResponsiveContainer, Tooltip, XAxis, YAxis, CartesianGri
 import { AlertTriangle, CreditCard, MailPlus, Users } from 'lucide-react'
 import { useUI } from '@/store/ui'
 import { useDatos } from '@/store/datos'
-import { useT } from '@/i18n'
+import { dato, useT } from '@/i18n'
 import { kickerRol } from '@/lib/rol'
 import { AvatarUni, EncabezadoSeccion, EstadoBadge, Kpi, Pildora, PreviewBanner } from '@/components/ui/Piezas'
 import { Boton } from '@/components/ui/Boton'
@@ -71,7 +71,7 @@ export function UniversidadPanel() {
               {uni.nombre}
             </h1>
             <p className="num mt-1 text-[13px] text-marfil/65">
-              {uni.slug}.sapio.example · {uni.ciudad}, {uni.pais}
+              {uni.slug}.sapio.example · {uni.ciudad}, {dato(uni.pais, lang)}
             </p>
           </div>
           {/* Pill clara: sobre el color de la universidad el badge normal no contrasta. */}

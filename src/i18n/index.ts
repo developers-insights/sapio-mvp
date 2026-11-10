@@ -1,6 +1,7 @@
 import { useCallback } from 'react'
 import type { Dic, Entrada, Lang } from './tipos'
 import { comun } from './dic/comun'
+import { datos } from './dic/datos'
 import { estados } from './dic/estados'
 import { nav } from './dic/nav'
 import { login } from './dic/login'
@@ -20,6 +21,7 @@ export type { Lang } from './tipos'
 /** Cada clave vive en UN solo archivo. Acá se controla que así sea. */
 const archivos: Array<[string, Dic]> = [
   ['comun', comun],
+  ['datos', datos],
   ['estados', estados],
   ['nav', nav],
   ['login', login],
@@ -87,6 +89,17 @@ export function tr(clave: string, lang: Lang, vars?: Record<string, string | num
     for (const [k, v] of Object.entries(vars)) texto = texto.split(`{${k}}`).join(String(v))
   }
   return texto
+}
+
+/**
+ * Traduce un VALOR de dato del mock (facultad, país, carpeta, grupo).
+ * Si no está en el diccionario devuelve el valor tal cual, sin avisar:
+ * son datos, no claves de interfaz.
+ */
+export function dato(valor: string, lang: Lang): string {
+  const entrada = DIC[`dato.${valor}`]
+  if (!entrada) return valor
+  return entrada[lang] ?? valor
 }
 
 export function useT() {

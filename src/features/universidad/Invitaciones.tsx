@@ -6,7 +6,7 @@ import {
 } from 'lucide-react'
 import { useUI } from '@/store/ui'
 import { useDatos } from '@/store/datos'
-import { useT } from '@/i18n'
+import { dato, useT } from '@/i18n'
 import { kickerRol } from '@/lib/rol'
 import { campo } from '@/lib/texto'
 import {
@@ -156,7 +156,7 @@ function TabProfesores() {
                   <p className="num truncate text-[12px] text-tinta-sec dark:text-marfil/55">{s.email}</p>
                   <div className="mt-2 flex flex-wrap items-center gap-1.5">
                     <EstadoBadge estado={s.estado} />
-                    <Pildora tono="neutro">{s.facultad}</Pildora>
+                    <Pildora tono="neutro">{dato(s.facultad, lang)}</Pildora>
                     {s.estado === 'pendiente' ? (
                       <Pildora tono="champan" icono={<Link2 size={10} />}>
                         {t('uni.inv.venceEn', { n: s.venceEnDias })}
@@ -238,7 +238,7 @@ function TabProfesores() {
             </div>
             <div>
               <dt className="text-[11px] font-bold uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/50">{t('uni.inv.facultad')}</dt>
-              <dd className="mt-1 font-bold">{detalle.facultad}</dd>
+              <dd className="mt-1 font-bold">{dato(detalle.facultad, lang)}</dd>
             </div>
             <div>
               <dt className="text-[11px] font-bold uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/50">{t('uni.inv.area')}</dt>
@@ -326,7 +326,7 @@ function TabProfesores() {
           <Campo label={t('uni.inv.facultad')}>
             <Select defaultValue="Derecho">
               {uni.facultades.map((f) => (
-                <option key={f} value={f}>{f}</option>
+                <option key={f} value={f}>{dato(f, lang)}</option>
               ))}
             </Select>
           </Campo>
@@ -483,7 +483,7 @@ function TabEstudiantes() {
                       </span>
                     ) : null}
                   </Td>
-                  <Td className="hidden md:table-cell">{f.grupo}</Td>
+                  <Td className="hidden md:table-cell">{dato(f.grupo, lang)}</Td>
                 </tr>
               ))}
             </tbody>
@@ -516,7 +516,7 @@ function TabEstudiantes() {
               <div className="mt-2 flex flex-wrap items-center gap-1.5">
                 <EstadoBadge estado={i.estado} />
                 <Pildora tono="pizarra">{t(`rol.${i.rol}`)}</Pildora>
-                <Pildora tono="neutro">{i.grupo}</Pildora>
+                <Pildora tono="neutro">{dato(i.grupo, lang)}</Pildora>
               </div>
               <p className="num mt-1.5 text-[11.5px] text-tinta-sec dark:text-marfil/45">
                 {i.venceEnDias >= 0 ? t('uni.inv.venceEn', { n: i.venceEnDias }) : t('uni.inv.vencioHace', { n: Math.abs(i.venceEnDias) })}
@@ -552,7 +552,7 @@ function TabEstudiantes() {
                 <Td>
                   <Pildora tono="pizarra">{t(`rol.${i.rol}`)}</Pildora>
                 </Td>
-                <Td className="hidden text-[12.5px] lg:table-cell">{i.grupo}</Td>
+                <Td className="hidden text-[12.5px] lg:table-cell">{dato(i.grupo, lang)}</Td>
                 <Td>
                   <EstadoBadge estado={i.estado} />
                   <p className="num mt-1 text-[11px] text-tinta-sec dark:text-marfil/45">

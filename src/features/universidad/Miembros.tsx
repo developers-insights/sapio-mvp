@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { MoreVertical, UserCog, UserMinus, Users } from 'lucide-react'
 import { useUI } from '@/store/ui'
-import { useT } from '@/i18n'
+import { dato, useT } from '@/i18n'
 import { kickerRol } from '@/lib/rol'
 import { Avatar, EncabezadoSeccion, EstadoBadge, EstadoVacio, Pildora, PreviewBanner, Tabla, Td, Th } from '@/components/ui/Piezas'
 import { Boton } from '@/components/ui/Boton'
@@ -53,7 +53,7 @@ export function Miembros() {
           <Select value={dep} onChange={(e) => setDep(e.target.value)}>
             {departamentos.map((d) => (
               <option key={d} value={d}>
-                {d === 'todos' ? t('app.todos') : d}
+                {d === 'todos' ? t('app.todos') : dato(d, lang)}
               </option>
             ))}
           </Select>
@@ -90,7 +90,7 @@ export function Miembros() {
                   <p className="num mt-0.5 truncate text-[11.5px] text-tinta-sec dark:text-marfil/45">{m.email}</p>
                   <div className="mt-2 flex flex-wrap items-center gap-1.5">
                     <Pildora tono="pizarra">{t(`rol.${m.rol}`)}</Pildora>
-                    <Pildora tono="neutro">{m.departamento}</Pildora>
+                    <Pildora tono="neutro">{dato(m.departamento, lang)}</Pildora>
                     <EstadoBadge estado={m.presencia} />
                   </div>
                 </div>
@@ -136,7 +136,7 @@ export function Miembros() {
                 <Td>
                   <Pildora tono="pizarra">{t(`rol.${m.rol}`)}</Pildora>
                 </Td>
-                <Td className="hidden text-[12.5px] lg:table-cell">{m.departamento}</Td>
+                <Td className="hidden text-[12.5px] lg:table-cell">{dato(m.departamento, lang)}</Td>
                 <Td className="hidden lg:table-cell">
                   <EstadoBadge estado={m.presencia} />
                 </Td>
@@ -204,7 +204,7 @@ export function Miembros() {
                 <dt className="text-[11px] font-bold uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/50">
                   {t('uni.miembros.departamento')}
                 </dt>
-                <dd className="mt-1 font-bold">{ficha.departamento}</dd>
+                <dd className="mt-1 font-bold">{dato(ficha.departamento, lang)}</dd>
               </div>
             </dl>
             <Campo label={t('uni.miembros.asignarRol')}>
