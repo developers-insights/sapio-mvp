@@ -106,7 +106,7 @@ interface UIState {
   setAsistente: (v: boolean) => void
   setBuscador: (v: boolean) => void
   setSheetMas: (v: boolean) => void
-  abrirPreview: (p: Preview) => void
+  abrirPreview: (p: Preview, destino: { rol: Role; modo: Modo }) => void
   cerrarPreview: () => void
   cancelarPreview: () => void
   limpiarDestacado: () => void
@@ -194,10 +194,16 @@ export const useUI = create<UIState>((set, get) => ({
   setBuscador: (v) => set({ buscadorAbierto: v }),
   setSheetMas: (v) => set({ sheetMasAbierto: v }),
 
-  abrirPreview: (p) => set({ preview: p, rol: p.rolePrevio, modo: p.modoPrevio }),
+  // `rolePrevio` y `modoPrevio` son los de ANTES: acá pasamos al rol y al modo
+  // del destino y los previos quedan guardados para restaurarlos al volver.
+  abrirPreview: (p, destino) => {
+    escribirSS('sapio_rol', destino.rol)
+    set({ preview: p, rol: destino.rol, modo: destino.modo })
+  },
   cerrarPreview: () => {
     const p = get().preview
     if (!p) return
+    escribirSS('sapio_rol', p.rolePrevio)
     set({
       preview: null,
       rol: p.rolePrevio,

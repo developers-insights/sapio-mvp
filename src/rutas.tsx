@@ -28,6 +28,7 @@ import { Auditoria } from '@/features/plataforma/Auditoria'
 import { Seguridad } from '@/features/plataforma/Seguridad'
 import { Marca } from '@/features/plataforma/Marca'
 import { Proximamente } from '@/features/plataforma/Proximamente'
+import { Propuesta } from '@/features/propuesta/Propuesta'
 
 function Esq({ k, t }: { k: string; t: string }) {
   return <Esqueleto kicker={k} titulo={t} />
@@ -38,7 +39,7 @@ export function Rutas() {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route element={<Shell />}>
-        <Route path="/propuesta" element={<Esq k="PROPUESTA COMERCIAL" t="Propuesta" />} />
+        <Route path="/propuesta" element={<Propuesta />} />
         <Route path="/invitacion/:token" element={<Invitacion />} />
 
         <Route path="/plataforma/panel" element={<PlataformaPanel />} />

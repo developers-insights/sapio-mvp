@@ -47,6 +47,10 @@ export const estados: Dic = {
   'permiso.crear': { es: 'Crear', en: 'Create' },
   'permiso.editar': { es: 'Editar', en: 'Edit' },
   'permiso.eliminar': { es: 'Eliminar', en: 'Delete' },
+  'permiso.abr.ver': { es: 'V', en: 'V' },
+  'permiso.abr.crear': { es: 'C', en: 'C' },
+  'permiso.abr.editar': { es: 'E', en: 'E' },
+  'permiso.abr.eliminar': { es: 'X', en: 'D' },
 
   'plan.mensual': { es: 'Mensual', en: 'Monthly' },
   'plan.anual': { es: 'Anual', en: 'Annual' },

@@ -195,7 +195,7 @@ export function PlataformaRoles() {
                                   : 'bg-marfil-200 text-tinta-sec/60 hover:bg-marfil-300 dark:bg-noche-700 dark:text-marfil/35',
                               )}
                             >
-                              {t(`permiso.${a}`).slice(0, 1)}
+                              {t(`permiso.abr.${a}`)}
                             </button>
                           )
                         })}
@@ -212,7 +212,7 @@ export function PlataformaRoles() {
       <div className="mt-4 flex flex-wrap gap-2">
         {ACCIONES.map((a) => (
           <Pildora key={a} tono="neutro">
-            {t(`permiso.${a}`).slice(0, 1)} · {t(`permiso.${a}`)}
+            {t(`permiso.abr.${a}`)} · {t(`permiso.${a}`)}
           </Pildora>
         ))}
       </div>
