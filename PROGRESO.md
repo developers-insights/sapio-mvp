@@ -36,9 +36,13 @@
 - **Bloque 12 — QA.** `qa:responsive`, `qa:i18n`, `qa:rutas` y `qa:porton` corriendo en
   Chromium real sobre el build.
 
+- **Bloque 13 — Portón y repo.** Los cuatro chequeos en verde sobre el build final
+  (`EVIDENCIA.md` tiene la salida real), el portón probado rompiendo dos bugs a
+  propósito, y el repo creado en GitHub.
+
 ## En curso
 
-- Bloque 13 — Portón de calidad y repo.
+- Nada: el MVP está entregado. Queda el deploy manual en Render.
 
 ## Decisiones
 
