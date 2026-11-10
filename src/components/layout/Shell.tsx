@@ -38,8 +38,11 @@ export function Shell() {
     return () => window.removeEventListener('keydown', onKey)
   }, [setBuscador])
 
-  // El modo campus se renderiza sin shell de app (tiene su propia barra).
-  if (modo === 'campus') {
+  // El layout lo decide la RUTA (un enlace directo a /campus/... también entra
+  // sin shell de app). `modo` sigue en el store porque la previsualización de
+  // la Propuesta guarda y restaura el modo previo.
+  const enCampus = pathname.startsWith('/campus/') || modo === 'campus'
+  if (enCampus) {
     return (
       <>
         <Outlet />

@@ -17,6 +17,8 @@ import { Miembros } from '@/features/universidad/Miembros'
 import { Invitaciones } from '@/features/universidad/Invitaciones'
 import { Invitacion } from '@/features/universidad/Invitacion'
 import { UniversidadRoles } from '@/features/universidad/Roles'
+import { CampusEditor } from '@/features/campus/Editor'
+import { CampusPublico } from '@/features/campus/Publico'
 
 function Esq({ k, t }: { k: string; t: string }) {
   return <Esqueleto kicker={k} titulo={t} />
@@ -42,7 +44,7 @@ export function Rutas() {
         <Route path="/universidad/panel" element={<UniversidadPanel />} />
         <Route path="/universidad/miembros" element={<Miembros />} />
         <Route path="/universidad/invitaciones" element={<Invitaciones />} />
-        <Route path="/universidad/campus-editor" element={<Esq k="CAMPUS" t="Editor del campus" />} />
+        <Route path="/universidad/campus-editor" element={<CampusEditor />} />
         <Route path="/universidad/roles" element={<UniversidadRoles />} />
         <Route path="/universidad/suscripcion" element={<Esq k="FACTURACIÓN" t="Suscripción" />} />
 
@@ -59,7 +61,7 @@ export function Rutas() {
         <Route path="/chat" element={<Chat />} />
         <Route path="/chat/:canal" element={<Chat />} />
 
-        <Route path="/campus/:slug" element={<Esq k="CAMPUS PÚBLICO" t="Campus" />} />
+        <Route path="/campus/:slug" element={<CampusPublico />} />
         <Route path="/proximamente" element={<Esq k="PRÓXIMAMENTE" t="Fases 2 y 3" />} />
       </Route>
       <Route path="*" element={<Navigate to="/propuesta" replace />} />
