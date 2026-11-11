@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import type { EstadoSolicitud, EstadoTarea, InvitacionEstudiante, SolicitudProfesor, Tarea } from '@/data/tipos'
+import type { EstadoSolicitud, EstadoTarea, InvitacionEstudiante, SolicitudProfesor, Tarea, Universidad } from '@/data/tipos'
 import { TAREAS_BASE } from '@/data/proyecto'
 import { SOLICITUDES_PROFESOR, INVITACIONES_ESTUDIANTE, CSV_ESTUDIANTES, CSV_NOMBRE_ARCHIVO, PLAN_ACTUAL } from '@/data/gestion'
 import type { FilaCSV } from '@/data/tipos'
@@ -40,6 +40,10 @@ interface DatosState {
   documentoMesaEditado: Record<string, string>
   versionRestaurada: string | null
   participantesExtra: Record<string, Array<{ personaId: string; permiso: 'lectura' | 'edicion' }>>
+  /** Universidades dadas de alta en la demo. Viven acá para que su ficha
+   *  también se pueda abrir: si solo estuvieran en la pantalla del listado,
+   *  el botón "Ver" de la recién creada caería en el estado vacío. */
+  universidadesNuevas: Universidad[]
 
   agregarTareas: (nuevas: Tarea[]) => void
   cambiarEstadoTarea: (id: string, estado: EstadoTarea) => void
@@ -61,6 +65,7 @@ interface DatosState {
   setDocumentoMesa: (mesaId: string, html: string) => void
   restaurarVersion: (id: string) => void
   invitarAMesa: (mesaId: string, personaId: string, permiso: 'lectura' | 'edicion') => void
+  altaUniversidad: (u: Universidad) => void
   reiniciar: () => void
   /** Siembra el estado para una previsualización desde la Propuesta. */
   sembrar: (modulo: number) => void
@@ -102,6 +107,7 @@ const ESTADO_INICIAL = {
   documentoMesaEditado: {} as Record<string, string>,
   versionRestaurada: null as string | null,
   participantesExtra: {} as Record<string, Array<{ personaId: string; permiso: 'lectura' | 'edicion' }>>,
+  universidadesNuevas: [] as Universidad[],
 }
 
 export const useDatos = create<DatosState>((set, get) => ({
@@ -202,6 +208,9 @@ export const useDatos = create<DatosState>((set, get) => ({
         [mesaId]: [...(get().participantesExtra[mesaId] ?? []), { personaId, permiso }],
       },
     }),
+
+  altaUniversidad: (u) =>
+    set({ universidadesNuevas: [u, ...get().universidadesNuevas.filter((x) => x.id !== u.id)] }),
 
   reiniciar: () => set({ ...ESTADO_INICIAL }),
 

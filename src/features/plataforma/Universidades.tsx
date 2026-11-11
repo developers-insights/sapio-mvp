@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, Building2, Database, HardDrive, Plus, Settings2, ShieldCheck, TerminalSquare } from 'lucide-react'
 import { useUI } from '@/store/ui'
+import { useDatos } from '@/store/datos'
 import { dato, useT } from '@/i18n'
 import { kickerRol } from '@/lib/rol'
 import {
@@ -9,8 +10,9 @@ import {
 } from '@/components/ui/Piezas'
 import { Boton } from '@/components/ui/Boton'
 import { Modal } from '@/components/ui/Modal'
-import { Campo, Input, Select } from '@/components/ui/Campos'
+import { AltaUniversidad } from './AltaUniversidad'
 import { TOTALES_PLATAFORMA, UNIVERSIDADES, UNI_POR_ID } from '@/data/universidades'
+import type { Universidad } from '@/data/tipos'
 import { miembrosDe } from '@/data/personas'
 import { fechaCorta } from '@/lib/fechas'
 import { useEsMobile } from '@/lib/hooks'
@@ -25,14 +27,29 @@ export function Universidades() {
   const [alta, setAlta] = useState(false)
   const [aislamiento, setAislamiento] = useState(false)
   const [suspendidas, setSuspendidas] = useState<string[]>([])
+  /** Las que se dan de alta en la demo viven en el store: así su ficha
+   *  también se abre desde el botón "Ver". */
+  const nuevas = useDatos((s) => s.universidadesNuevas)
+  const altaUniversidad = useDatos((s) => s.altaUniversidad)
 
   const lista = useMemo(
     () =>
-      UNIVERSIDADES.map((u) =>
+      [...nuevas, ...UNIVERSIDADES].map((u) =>
         suspendidas.includes(u.id) ? { ...u, estado: 'suspendida' as const } : u,
       ),
-    [suspendidas],
+    [nuevas, suspendidas],
   )
+
+  const esNueva = (id: string) => nuevas.some((n) => n.id === id)
+
+  function altaHecha(u: Universidad) {
+    altaUniversidad(u)
+    toast({
+      titulo: t('alta.creadaOk', { nombre: u.nombre }),
+      detalle: t('alta.creadaDet'),
+      tono: 'ok',
+    })
+  }
 
   function alternarSuspension(id: string, nombre: string) {
     const yaEsta = suspendidas.includes(id)
@@ -71,7 +88,9 @@ export function Universidades() {
       />
 
       <div className="mb-4 flex flex-wrap gap-2">
-        <Pildora tono="neutro">{TOTALES_PLATAFORMA.universidades} {t('plat.panel.universidades')}</Pildora>
+        <Pildora tono="neutro">
+          {TOTALES_PLATAFORMA.universidades + nuevas.length} {t('plat.panel.universidades')}
+        </Pildora>
         <Pildora tono="mineral">{TOTALES_PLATAFORMA.activas} {t('estado.activa')}</Pildora>
         <Pildora tono="pizarra">{TOTALES_PLATAFORMA.prueba} {t('estado.prueba')}</Pildora>
         <Pildora tono="terroso">{TOTALES_PLATAFORMA.vencidas} {t('estado.vencida')}</Pildora>
@@ -90,6 +109,7 @@ export function Universidades() {
                     {u.slug}.sapio.example
                   </p>
                   <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                    {esNueva(u.id) ? <Pildora tono="mineral">{t('alta.nueva')}</Pildora> : null}
                     <EstadoBadge estado={u.estado} />
                     <Pildora tono="neutro">{t(`plan.${u.plan}`)}</Pildora>
                     <Pildora tono="pizarra" className="num">
@@ -142,7 +162,10 @@ export function Universidades() {
                   <Pildora tono="neutro">{t(`plan.${u.plan}`)}</Pildora>
                 </Td>
                 <Td>
-                  <EstadoBadge estado={u.estado} />
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    <EstadoBadge estado={u.estado} />
+                    {esNueva(u.id) ? <Pildora tono="mineral">{t('alta.nueva')}</Pildora> : null}
+                  </div>
                 </Td>
                 <Td className="num hidden font-bold lg:table-cell">
                   {u.usuariosActivos.toLocaleString(lang === 'en' ? 'en-US' : 'es-AR')}
@@ -165,52 +188,7 @@ export function Universidades() {
 
       <ModalAislamiento abierto={aislamiento} onCerrar={() => setAislamiento(false)} />
 
-      <Modal
-        abierto={alta}
-        onCerrar={() => setAlta(false)}
-        titulo={t('plat.uni.alta')}
-        ancho={520}
-        pie={
-          <>
-            <Boton variante="secundario" onClick={() => setAlta(false)}>{t('app.cancelar')}</Boton>
-            <Boton
-              onClick={() => {
-                setAlta(false)
-                toast({ titulo: t('plat.uni.creada'), detalle: t('toast.accionMockDetalle'), tono: 'ok' })
-              }}
-            >
-              {t('app.crear')}
-            </Boton>
-          </>
-        }
-      >
-        <div className="space-y-4">
-          <Campo label={t('plat.uni.nombre')}>
-            <Input defaultValue={lang === 'en' ? 'Ridgefield Institute' : 'Instituto Ridgefield'} />
-          </Campo>
-          <Campo label={t('plat.uni.subdominio')} ayuda="ridgefield.sapio.example">
-            <Input defaultValue="ridgefield" className="num" />
-          </Campo>
-          <div className="grid gap-3 sm:grid-cols-2">
-            <Campo label={t('plat.uni.idioma')}>
-              <Select defaultValue="es">
-                <option value="es">Español</option>
-                <option value="en">English</option>
-              </Select>
-            </Campo>
-            <Campo label={t('plat.uni.zona')}>
-              <Select defaultValue="America/Argentina/Buenos_Aires">
-                <option>America/Argentina/Buenos_Aires</option>
-                <option>America/New_York</option>
-                <option>Europe/Madrid</option>
-              </Select>
-            </Campo>
-          </div>
-          <Campo label={t('plat.uni.logo')}>
-            <Input maxLength={3} defaultValue="IR" />
-          </Campo>
-        </div>
-      </Modal>
+      <AltaUniversidad abierto={alta} onCerrar={() => setAlta(false)} onCreada={altaHecha} />
 
       <DevNotice
         className="mt-8"
@@ -316,7 +294,8 @@ export function UniversidadDetalle() {
   const { t, lang } = useT()
   const rol = useUI((s) => s.rol)
   const navigate = useNavigate()
-  const u = id ? UNI_POR_ID[id] : undefined
+  const nuevas = useDatos((s) => s.universidadesNuevas)
+  const u = id ? (UNI_POR_ID[id] ?? nuevas.find((n) => n.id === id)) : undefined
 
   if (!u) {
     return (
@@ -367,7 +346,7 @@ export function UniversidadDetalle() {
               <dd className="num mt-1 truncate font-bold">{u.zonaHoraria}</dd>
             </div>
             <div>
-              <dt className="text-[11px] font-bold uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/50">{t('plan.mensual')}</dt>
+              <dt className="text-[11px] font-bold uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/50">{t('plat.uni.plan')}</dt>
               <dd className="mt-1 font-bold">{t(`plan.${u.plan}`)}</dd>
             </div>
             <div>

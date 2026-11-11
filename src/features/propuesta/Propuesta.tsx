@@ -353,108 +353,69 @@ function BloqueInversion() {
           <div ref={contenidoRef} className="pt-7">
             <p className="text-[clamp(17px,2.6vw,22px)] font-black">{t('prop.inv.soloFase1')}</p>
 
-            {/* Fase 1 */}
-            <div className="card-sapio mt-5 p-5 sm:p-7">
-              <p className="kicker">{t('prop.inv.fase1')}</p>
+            {/* Una tarjeta por fase: cada una con su monto, su plazo y su 50/50. */}
+            <div className="mt-5 space-y-4">
+              {(['fase1', 'fase2', 'fase3'] as const).map((f) => (
+                <TarjetaFaseInversion key={f} fase={f} />
+              ))}
+            </div>
+
+            {/* Inversión total del proyecto: la suma de las tres, abajo de todo. */}
+            <div className="mt-4 rounded-2xl bg-noche p-5 sm:p-7">
+              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-mineral-300">
+                {t('prop.inv.totalProyecto')}
+              </p>
               <p
-                className="num mt-2 font-black leading-none"
-                style={{ fontSize: 'clamp(40px, 8vw, 56px)' }}
+                className="num mt-2 font-black leading-none text-marfil"
+                style={{ fontSize: 'clamp(36px,7.5vw,56px)' }}
               >
-                {usd(MONTOS.fase1.total)}
+                {usd(MONTOS.total.total)}
               </p>
-              <p className="num mt-3 text-[14px] font-bold text-tinta-sec dark:text-marfil/60">
-                {t('prop.inv.plazo', { semanas: MONTOS.fase1.semanas })}
-              </p>
-              <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                <div className="rounded-xl border border-borde p-3.5 dark:border-[#27425a]">
-                  <p className="text-[12px] font-bold uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/50">
-                    {t('prop.inv.alIniciar')}
-                  </p>
-                  <p className="num mt-1.5 text-[22px] font-black">{usd(MONTOS.fase1.mitad)}</p>
-                </div>
-                <div className="rounded-xl border border-borde p-3.5 dark:border-[#27425a]">
-                  <p className="text-[12px] font-bold uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/50">
-                    {t('prop.inv.alEntregar')}
-                  </p>
-                  <p className="num mt-1.5 text-[22px] font-black">{usd(MONTOS.fase1.mitad)}</p>
-                  <p className="mt-1 text-[12px] leading-snug text-tinta-sec dark:text-marfil/50">
-                    {t('prop.inv.alEntregarDet')}
-                  </p>
-                </div>
+              <ul className="num mt-4 grid gap-2 sm:grid-cols-3">
+                {(['fase1', 'fase2', 'fase3'] as const).map((f) => (
+                  <li
+                    key={f}
+                    className="min-w-0 rounded-xl border border-[#27425a] px-3 py-2.5"
+                  >
+                    <span className="block text-[11px] font-bold uppercase tracking-[0.1em] text-mineral-300">
+                      {t(`prop.${f}`)}
+                    </span>
+                    <span className="mt-0.5 block text-[18px] font-black text-marfil">
+                      {usd(MONTOS[f].total)}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-4 rounded-xl border border-mineral-300/40 bg-mineral/[.18] p-3.5 sm:p-4">
+                <p className="text-[12.5px] font-bold leading-snug text-mineral-300">
+                  {t('prop.inv.totalAdelantado', { pct: MONTOS.descuentoPct })}
+                </p>
+                <p
+                  className="num mt-1.5 font-black leading-none text-marfil"
+                  style={{ fontSize: 'clamp(26px,5vw,34px)' }}
+                >
+                  {usd(MONTOS.total.conDescuento)}
+                </p>
+                <p className="num mt-1.5 text-[12.5px] font-bold text-mineral-300">
+                  {t('prop.inv.ahorro', { monto: usd(MONTOS.total.ahorro) })}
+                </p>
               </div>
             </div>
 
-            {/* Descuento por pago adelantado */}
-            <div className="mt-4 rounded-2xl border-2 border-mineral bg-mineral/[.06] p-5 sm:p-6">
-              <span className="filete" />
-              <p className="mt-3 text-[clamp(16px,2.4vw,20px)] font-black">
-                {t('prop.inv.adelantado', { pct: MONTOS.descuentoPct })}
+            {/* Mantenimiento */}
+            <div className="card-sapio mt-4 p-5 sm:p-6">
+              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-tinta-sec dark:text-marfil/50">
+                {t('prop.inv.mantenimiento')}
               </p>
-              <p className="num mt-3 font-black leading-none text-mineral-texto" style={{ fontSize: 'clamp(32px,6.5vw,46px)' }}>
-                {usd(MONTOS.fase1.conDescuento)}
-              </p>
-              <p className="num mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] text-tinta-sec dark:text-marfil/60">
-                <span className="line-through">{t('prop.inv.listaTachada', { monto: usd(MONTOS.fase1.total) })}</span>
-                <span className="font-bold text-mineral-texto">
-                  {t('prop.inv.ahorro', { monto: usd(MONTOS.fase1.ahorro) })}
+              <p className="num mt-2 font-black leading-none" style={{ fontSize: 'clamp(28px,5.5vw,38px)' }}>
+                {usd(MONTOS.mantenimientoMensual)}
+                <span className="ml-1 text-[14px] font-bold text-tinta-sec dark:text-marfil/50">
+                  {t('prop.inv.porMes')}
                 </span>
               </p>
-            </div>
-
-            {/* Extensión */}
-            <div className="card-sapio mt-4 p-5 sm:p-6">
-              <p className="kicker">{t('prop.inv.extension')}</p>
-              <p className="num mt-2 font-black leading-none" style={{ fontSize: 'clamp(30px,6vw,42px)' }}>
-                {usd(MONTOS.extension.total)}
+              <p className="mt-2.5 max-w-2xl text-[12.5px] leading-relaxed text-tinta-sec dark:text-marfil/55">
+                {t('prop.inv.mantenimientoDet')}
               </p>
-              <p className="mt-2 text-[13px] leading-relaxed text-tinta-sec dark:text-marfil/60">
-                {t('prop.inv.extensionDet')}
-              </p>
-              <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                {(['fase2', 'fase3'] as const).map((f) => (
-                  <div key={f} className="rounded-xl border border-borde p-3.5 dark:border-[#27425a]">
-                    <p className="text-[12px] font-bold uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/50">
-                      {t(`prop.${f}`)} · {MONTOS[f].semanas} {t('prop.semanas')}
-                    </p>
-                    <p className="num mt-1.5 text-[24px] font-black">{usd(MONTOS[f].total)}</p>
-                    <p className="num mt-1.5 text-[12.5px] text-tinta-sec dark:text-marfil/55">
-                      {t('prop.inv.alIniciar')} {usd(MONTOS[f].mitad)} · {t('prop.inv.alEntregar')}{' '}
-                      {usd(MONTOS[f].mitad)}
-                    </p>
-                  </div>
-                ))}
-              </div>
-              <p className="num mt-4 text-[13.5px] font-bold">
-                {t('prop.inv.conDescuentoFase', { pct: MONTOS.descuentoPct })}: {t('prop.fase2')}{' '}
-                {usd(MONTOS.fase2.conDescuento)} · {t('prop.fase3')} {usd(MONTOS.fase3.conDescuento)} ·{' '}
-                {t('prop.inv.totalExtension')} {usd(MONTOS.extension.conDescuento)}
-              </p>
-            </div>
-
-            {/* Total y mantenimiento */}
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              <div className="rounded-2xl bg-noche p-5 sm:p-6">
-                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-mineral-300">
-                  {t('prop.inv.totalProyecto')}
-                </p>
-                <p className="num mt-2 font-black leading-none text-marfil" style={{ fontSize: 'clamp(32px,6.5vw,46px)' }}>
-                  {usd(MONTOS.totalProyecto)}
-                </p>
-              </div>
-              <div className="card-sapio p-5 sm:p-6">
-                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-tinta-sec dark:text-marfil/50">
-                  {t('prop.inv.mantenimiento')}
-                </p>
-                <p className="num mt-2 font-black leading-none" style={{ fontSize: 'clamp(28px,5.5vw,38px)' }}>
-                  {usd(MONTOS.mantenimientoMensual)}
-                  <span className="ml-1 text-[14px] font-bold text-tinta-sec dark:text-marfil/50">
-                    {t('prop.inv.porMes')}
-                  </span>
-                </p>
-                <p className="mt-2.5 text-[12.5px] leading-relaxed text-tinta-sec dark:text-marfil/55">
-                  {t('prop.inv.mantenimientoDet')}
-                </p>
-              </div>
             </div>
 
             {/* Garantía */}
@@ -476,5 +437,78 @@ function BloqueInversion() {
         ) : null}
       </div>
     </section>
+  )
+}
+
+/**
+ * Una fase de la propuesta. Las tres se cotizan por separado: monto propio,
+ * plazo propio, 50/50 propio y descuento propio por pago adelantado.
+ */
+function TarjetaFaseInversion({ fase }: { fase: 'fase1' | 'fase2' | 'fase3' }) {
+  const { t } = useT()
+  const m = MONTOS[fase]
+  const esPrimera = fase === 'fase1'
+
+  return (
+    <article className={cn('card-sapio p-5 sm:p-7', esPrimera && 'border-2 border-mineral')}>
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+        <p className="kicker">{t(`prop.inv.${fase}`)}</p>
+        <Pildora tono={esPrimera ? 'mineral' : 'neutro'}>
+          {esPrimera ? t('prop.inv.ahora') : t('prop.inv.despues')}
+        </Pildora>
+      </div>
+      <p
+        className="num mt-2 font-black leading-none"
+        style={{ fontSize: esPrimera ? 'clamp(40px,8vw,56px)' : 'clamp(32px,6.4vw,44px)' }}
+      >
+        {usd(m.total)}
+      </p>
+      <p className="num mt-3 text-[14px] font-bold text-tinta-sec dark:text-marfil/60">
+        {t('prop.inv.plazo', { semanas: m.semanas })}
+      </p>
+      {!esPrimera ? (
+        <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-tinta-sec dark:text-marfil/60">
+          {t('prop.inv.cuandoSeActiva')}
+        </p>
+      ) : null}
+
+      <div className="mt-5 grid gap-3 sm:grid-cols-2">
+        <div className="rounded-xl border border-borde p-3.5 dark:border-[#27425a]">
+          <p className="text-[12px] font-bold uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/50">
+            {t('prop.inv.alIniciar')}
+          </p>
+          <p className="num mt-1.5 text-[22px] font-black">{usd(m.mitad)}</p>
+        </div>
+        <div className="rounded-xl border border-borde p-3.5 dark:border-[#27425a]">
+          <p className="text-[12px] font-bold uppercase tracking-[0.1em] text-tinta-sec dark:text-marfil/50">
+            {t('prop.inv.alEntregar')}
+          </p>
+          <p className="num mt-1.5 text-[22px] font-black">{usd(m.mitad)}</p>
+          {esPrimera ? (
+            <p className="mt-1 text-[12px] leading-snug text-tinta-sec dark:text-marfil/50">
+              {t('prop.inv.alEntregarDet')}
+            </p>
+          ) : null}
+        </div>
+      </div>
+
+      <div className="mt-4 rounded-xl border border-mineral/35 bg-mineral/[.07] p-3.5 sm:p-4">
+        <p className="text-[12.5px] font-bold leading-snug">
+          {t('prop.inv.adelantadoFase', { pct: MONTOS.descuentoPct })}
+        </p>
+        <p
+          className="num mt-1.5 font-black leading-none text-mineral-texto"
+          style={{ fontSize: 'clamp(24px,4.6vw,30px)' }}
+        >
+          {usd(m.conDescuento)}
+        </p>
+        <p className="num mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[12.5px] text-tinta-sec dark:text-marfil/60">
+          <span className="line-through">{t('prop.inv.listaTachada', { monto: usd(m.total) })}</span>
+          <span className="font-bold text-mineral-texto">
+            {t('prop.inv.ahorro', { monto: usd(m.ahorro) })}
+          </span>
+        </p>
+      </div>
+    </article>
   )
 }

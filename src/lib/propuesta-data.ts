@@ -3,43 +3,43 @@
  * Prohibido hardcodear estos montos en cualquier otro archivo.
  * Los precios de los planes de suscripción del mock (src/data/gestion.ts)
  * son otra cosa: van rotulados "Precios ilustrativos de planes".
+ *
+ * Las tres fases se cotizan POR SEPARADO: cada una con su monto, su plazo y su
+ * propio 50/50. No existe un paquete "Fase 2 + Fase 3": eso venía de la
+ * propuesta en HTML, que no permitía abrir la tercera fase.
  */
-const FASE_1 = 16000
-const FASE_2 = 14000
-const FASE_3 = 10000
+const FASE_1 = 17000
+const FASE_2 = 12000
+const FASE_3 = 8500
 const DESCUENTO = 0.15
 
 const mitad = (n: number) => n / 2
 const conDescuento = (n: number) => Math.round(n * (1 - DESCUENTO))
 
+/** `semanas` va sin palabras: el idioma lo pone la clave `prop.inv.plazo`. */
+const fase = (total: number, semanas: string) => ({
+  total,
+  mitad: mitad(total),
+  conDescuento: conDescuento(total),
+  ahorro: total - conDescuento(total),
+  semanas,
+})
+
+const TOTAL = FASE_1 + FASE_2 + FASE_3
+
 export const MONTOS = {
   moneda: 'USD',
   descuento: DESCUENTO,
   descuentoPct: Math.round(DESCUENTO * 100),
-  fase1: {
-    total: FASE_1,
-    mitad: mitad(FASE_1),
-    conDescuento: conDescuento(FASE_1),
-    ahorro: FASE_1 - conDescuento(FASE_1),
-    semanas: '~12',
+  fase1: fase(FASE_1, '~12'),
+  fase2: fase(FASE_2, '~10'),
+  fase3: fase(FASE_3, '~8–10'),
+  total: {
+    total: TOTAL,
+    conDescuento: conDescuento(TOTAL),
+    ahorro: TOTAL - conDescuento(TOTAL),
   },
-  fase2: {
-    total: FASE_2,
-    mitad: mitad(FASE_2),
-    conDescuento: conDescuento(FASE_2),
-    semanas: '~10',
-  },
-  fase3: {
-    total: FASE_3,
-    mitad: mitad(FASE_3),
-    conDescuento: conDescuento(FASE_3),
-    semanas: '~8 a 10',
-  },
-  extension: {
-    total: FASE_2 + FASE_3,
-    conDescuento: conDescuento(FASE_2) + conDescuento(FASE_3),
-  },
-  totalProyecto: FASE_1 + FASE_2 + FASE_3,
+  totalProyecto: TOTAL,
   mantenimientoMensual: 97,
 } as const
 
@@ -79,7 +79,7 @@ export const EXTENSION = {
     items: ['prop.f2.1', 'prop.f2.2', 'prop.f2.3', 'prop.f2.4', 'prop.f2.5', 'prop.f2.6', 'prop.f2.7'],
   },
   fase3: {
-    semanas: '~8 a 10',
+    semanas: '~8–10',
     items: ['prop.f3.1', 'prop.f3.2', 'prop.f3.3', 'prop.f3.4', 'prop.f3.5'],
   },
 }

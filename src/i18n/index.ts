@@ -10,6 +10,7 @@ import { workplace } from './dic/workplace'
 import { mesa } from './dic/mesa'
 import { chat } from './dic/chat'
 import { asistente } from './dic/asistente'
+import { alta } from './dic/alta'
 import { universidad } from './dic/universidad'
 import { plataforma } from './dic/plataforma'
 import { campus } from './dic/campus'
@@ -32,6 +33,7 @@ const archivos: Array<[string, Dic]> = [
   ['asistente', asistente],
   ['universidad', universidad],
   ['plataforma', plataforma],
+  ['alta', alta],
   ['campus', campus],
   ['tour', tour],
 ]
